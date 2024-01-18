@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Tracker</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>My Book Tracker</h1>
+
+    <!-- Monthly Challenge Section -->
+    <div id="monthly-challenge">
+        <h2>Monthly Reading Challenge</h2>
+        <input type="number" id="monthly-goal-input" placeholder="Enter your monthly book goal" />
+        <button id="set-goal-button">Set Goal</button>
+        <div id="goal-status">Goal not set.</div>
+    </div>
+
+    <!-- Update Progress Section -->
+    <div id="update-progress">
+        <h2>Update Progress</h2>
+        <button id="increment-progress-button">Finished a Book</button>
+        <div id="current-progress">Current Progress: 0 Books Read</div>
+    </div>
+
+    <!-- Book Adding Section -->
+    <h2>Add a Book</h2>
+    <input type="text" id="book-title-input" placeholder="Enter book title" />
+    <input type="text" id="book-author-input" placeholder="Enter author's name" />
+    <input type="text" id="book-genre-input" placeholder="Enter book genre" />
+    <button id="add-book-button">Add Book</button>
+    
+    <!-- Book List and Genre Stats Section -->
+    <div id="book-list"></div>
+    <div id="total-count">Total Books Read: 0</div>
+    <div id="genre-stats">Most Read Genres: Not Available</div>
+</body>
+</html>

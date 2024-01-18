@@ -1,0 +1,70 @@
+/* style.css */
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f0eae2;
+    color: #3a3b3c;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #7851a9; /* Rich color for headings */
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    width: 250px;
+}
+
+button {
+    background-color: #7851a9; /* Matching the primary color theme */
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5d3f8e;
+}
+
+#monthly-challenge, #update-progress, #book-list, #genre-stats {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#book-list .book-item {
+    background-color: #eee;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+#goal-status, #current-progress, #total-count, #genre-stats {
+    font-style: italic;
+    color: #7851a9;
+}
+
+@media (max-width: 600px) {
+    input[type="text"], input[type="number"], button {
+        width: 90%;
+    }
+
+    #monthly-challenge, #update-progress, #book-list, #genre-stats {
+        width: 95%;
+    }
+}
