@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Book Tracker</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
-    <h1>My Book Tracker</h1>
+    <h1>My Book Tracker</h1>#
+
+    <!-- Dictionary Search Section -->
+    <div id="dictionary-search">
+        <h2>Dictionary Search</h2>
+        <input type="text" id="word-input" placeholder="Enter a word to search" />
+        <button id="search-word-button">Search</button>
+        <div id="word-meaning">Definition will appear here.</div>
+    </div>
 
     <!-- Monthly Challenge Section -->
     <div id="monthly-challenge">
@@ -28,15 +34,15 @@
     <h2>Add a Book</h2>
     <input type="text" id="book-title-input" placeholder="Enter book title" />
     <input type="text" id="book-author-input" placeholder="Enter author's name" />
-    <input type="text" id="book-genre-input" placeholder="Enter book genre" />
+>
     <button id="add-book-button">Add Book</button>
 
     <!-- Book List and Genre Stats Section -->
     <div id="book-list"></div>
     <div id="total-count">Total Books Read: 0</div>
-    <div id="genre-stats">Most Read Genres: Not Available</div>
+
+    
 
     <script src="assets/js/script.js"></script>
 </body>
-
 </html>
