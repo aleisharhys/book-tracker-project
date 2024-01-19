@@ -4,6 +4,10 @@ Link to deployed site:
 
 https://aleisharhys.github.io/book-tracker-project/
 
+updated font:
+
+<img width="955" alt="Screenshot 2024-01-19 180033" src="https://github.com/aleisharhys/book-tracker-project/assets/147520136/a8b1c954-dbaf-40d9-8174-fa79e147e0bf">
+
 
 This is a group project for a book tracker. <img width="960" alt="Screenshot 2024-01-19 175336" src="https://github.com/aleisharhys/book-tracker-project/assets/147520136/6daece6d-08ab-44a7-ac8f-dbafe85b3766">
  
