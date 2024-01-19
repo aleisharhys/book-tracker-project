@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Search</div>
+    <!-- This is a simple box containing an input field and a search button underneath. -->
+
+    <div class="hidden">Search results</div>
+    <!-- Once you type something into the search field, the search field will disappear and the results will come in its place, by adding the "hidden class to the search element", and the "hidden" class will be removed from this section. All results will have a button next to them to make it possible to add it to your book collection. -->
+
+    <div class="hidden">My Collection</div>
+    <!-- This section is the list of the books you own. You can mark a book as read, in progress or planned to read. For instance you can add a dropdown to each list element and you can pick the relevant option. Same way as before, if you click on the "My collection" point in the nav bar, "hidden" class gets removed from this section and everything else gets this class so nothing else will be visible on the page. -->
+
+    <div class="hidden">Dictionary</div>
+    <!-- This is a similar section to the Search, but here you can search for a word and the meaning of it will be displayed -->
+    <div class="hidden">Dictionary results</div>
+</body>
+<!-- Dictionary section gets hidden, this one will be visible. It's just a simple box containing all the information that we get from the Dictionary API. -->
+
+</html>
+
+<!-- 
+    In general:
+    Once you open the website, you are landing on the search page. That's why the search element doesn't, but everything else does have the class "hidden".
+    You can create a CSS rule fore the "hidden" class -> display: none; -> all html elements having the class "hidden" will not be displayed.
+    Then Ioana and me can dynamically remove or add the "hidden" class to an element depending on the needs by using JS.
+-->
