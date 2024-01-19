@@ -1,0 +1,71 @@
+/* General body styling with Georgia font, a soft background color, and centered text */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f0eae2;
+    color: #3a3b3c;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Container for both APIs with a centered and responsive layout */
+.api-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+/* Styling for individual API sections with rounded edges */
+.dictionary-api, .book-tracker-api {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px; /* Rounded edges for elegance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 40px); /* Adjust width for spacing */
+    margin: 10px; /* Spacing between elements */
+    box-sizing: border-box;
+}
+
+/* Header styling with a subtle color accent */
+h1 {
+    color: #7851a9; /* Elegant purple accent */
+    font-size: 24px;
+}
+
+/* Styling for input fields with rounded edges */
+input[type="text"] {
+    width: calc(100% - 22px); /* Full width with padding and border */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px; /* Rounded edges for input fields */
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Styling for buttons with rounded edges and accent color */
+button {
+    width: 100%; /* Full width button */
+    padding: 10px 0;
+    background-color: #7851a9; /* Elegant purple background */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded edges for buttons */
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Button hover effect for interactive feel */
+button:hover {
+    background-color: darken(#7851a9, 10%); /* Slightly darker shade on hover */
+}
+
+/* Result display areas with rounded edges */
+#dictionary-result, #book-result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #eee;
+    border-radius: 8px; /* Rounded edges for result areas */
+    text-align: left; /* Align text to the left inside these containers */
+}

@@ -1,48 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Book Tracker</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Basic head elements and link to CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Interfaces</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>My Book Tracker</h1>#
+    <div class="api-container">
+        <!-- Dictionary API Section -->
+        <div class="dictionary-api">
+            <h1>Dictionary Search</h1>
+            <!-- Input field for dictionary search. Developers should attach an event listener to this input for API calls -->
+            <input type="text" id="dictionary-search" placeholder="Enter a word">
+            <!-- Button for triggering the dictionary search. Attach an event listener to this button for API calls -->
+            <button id="search-word">Search</button>
+            <!-- Display results from the dictionary API here -->
+            <div id="dictionary-result"></div>
+        </div>
 
-    <!-- Dictionary Search Section -->
-    <div id="dictionary-search">
-        <h2>Dictionary Search</h2>
-        <input type="text" id="word-input" placeholder="Enter a word to search" />
-        <button id="search-word-button">Search</button>
-        <div id="word-meaning">Definition will appear here.</div>
+        <!-- Book Tracker API Section -->
+        <div class="book-tracker-api">
+            <h1>Book Tracker</h1>
+            <!-- Input field for book tracking. Developers should attach an event listener to this input for API calls -->
+            <input type="text" id="book-search" placeholder="Enter book title or author">
+            <!-- Button for triggering the book tracking. Attach an event listener to this button for API calls -->
+            <button id="search-book">Track</button>
+            <!-- Display results from the book tracker API here -->
+            <div id="book-result"></div>
+        </div>
     </div>
-
-    <!-- Monthly Challenge Section -->
-    <div id="monthly-challenge">
-        <h2>Monthly Reading Challenge</h2>
-        <input type="number" id="monthly-goal-input" placeholder="Enter your monthly book goal" />
-        <button id="set-goal-button">Set Goal</button>
-        <div id="goal-status">Goal not set.</div>
-    </div>
-
-    <!-- Update Progress Section -->
-    <div id="update-progress">
-        <h2>Update Progress</h2>
-        <button id="increment-progress-button">Finished a Book</button>
-        <div id="current-progress">Current Progress: 0 Books Read</div>
-    </div>
-
-    <!-- Book Adding Section -->
-    <h2>Add a Book</h2>
-    <input type="text" id="book-title-input" placeholder="Enter book title" />
-    <input type="text" id="book-author-input" placeholder="Enter author's name" />
->
-    <button id="add-book-button">Add Book</button>
-
-    <!-- Book List and Genre Stats Section -->
-    <div id="book-list"></div>
-    <div id="total-count">Total Books Read: 0</div>
-
-    
-
-    <script src="assets/js/script.js"></script>
 </body>
 </html>
