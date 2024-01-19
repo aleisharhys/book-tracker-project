@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic head elements and link to CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Interfaces</title>
+    <title>Dynamic Library and Dictionary Interface</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="api-container">
-        <!-- Dictionary API Section -->
-        <div class="dictionary-api">
-            <h1>Dictionary Search</h1>
-            <!-- Input field for dictionary search. Developers should attach an event listener to this input for API calls -->
-            <input type="text" id="dictionary-search" placeholder="Enter a word">
-            <!-- Button for triggering the dictionary search. Attach an event listener to this button for API calls -->
-            <button id="search-word">Search</button>
-            <!-- Display results from the dictionary API here -->
-            <div id="dictionary-result"></div>
-        </div>
+    <!-- Search Section: Users can search for books or words -->
+    <div id="search-section">
+        <h1>My Book Tracker</h1>
+        <input type="text" id="universal-search" placeholder="Enter book title, author, or a word">
+        <button id="search-btn">Search</button>
+    </div>
 
-        <!-- Book Tracker API Section -->
-        <div class="book-tracker-api">
-            <h1>Book Tracker</h1>
-            <!-- Input field for book tracking. Developers should attach an event listener to this input for API calls -->
-            <input type="text" id="book-search" placeholder="Enter book title or author">
-            <!-- Button for triggering the book tracking. Attach an event listener to this button for API calls -->
-            <button id="search-book">Track</button>
-            <!-- Display results from the book tracker API here -->
-            <div id="book-result"></div>
-        </div>
+    <!-- Search Results Section: Dynamically populated with search results -->
+    <div id="search-results" class="hidden">
+        <h2>Search Results</h2>
+        <!-- Search results will be populated here -->
+    </div>
+
+    <!-- My Collection Section: Shows user's book collection -->
+    <div id="my-collection" class="hidden">
+        <h2>My Collection</h2>
+        <!-- List of books in the collection will be shown here -->
+    </div>
+
+    <!-- Dictionary Section: For dictionary search results -->
+    <div id="dictionary-section" class="hidden">
+        <h2>Dictionary</h2>
+        <!-- Dictionary results will be shown here -->
     </div>
 </body>
 </html>
