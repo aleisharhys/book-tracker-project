@@ -1,11 +1,17 @@
 /* General body styling with Georgia font, a soft background color, and centered text */
+/* General body styling with Georgia font, a soft background color, and centered text */
 body {
-    font-family: 'Georgia', serif;
-    background-color: #f0eae2;
+    
     color: #3a3b3c;
-    margin: 0;
-    padding: 20px;
+    /* Remove padding to make the body take up full height */
     text-align: center;
+    height: 100vh;
+    /* Set height to 100% of the viewport height */
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
 }
 
 /* Container for both APIs with a centered and responsive layout */
@@ -15,9 +21,9 @@ body {
     align-items: start;
     flex-wrap: wrap;
     margin-top: 50px;
-   
+    width: 100%;
+    /* Set width to 100% of the viewport width */
 }
-
 /* Styling for individual API sections with rounded edges */
 .dictionary-api, .book-tracker-api {
     background-color: white;
