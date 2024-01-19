@@ -2,7 +2,7 @@
 /* General body styling with Georgia font, a soft background color, and centered text */
 body {
     
-    color: #3a3b3c;
+ background-color:#e9e2f0;
     /* Remove padding to make the body take up full height */
     text-align: center;
     height: 100vh;
