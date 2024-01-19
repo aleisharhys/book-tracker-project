@@ -1,0 +1,86 @@
+User
+creat a nav bar in htm with disctionary and my books. when I click on dictionary the htm will display me a search input
+ChatGPT
+Certainly! Below is a simple example of an HTML navigation bar with two links: "Dictionary" and "My Books." When you
+click on "Dictionary," it will display a search input field.
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    #search-container {
+      display: none;
+      padding: 20px;
+    }
+
+    #search-container input[type=text] {
+      padding: 10px;
+      width: 70%;
+      margin-right: 10px;
+    }
+
+    #search-container button {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#" onclick="showSearch()">Dictionary</a>
+    <a href="#">My Books</a>
+  </nav>
+
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Enter your search">
+    <button onclick="search()">Search</button>
+  </div>
+
+  <script>
+    function showSearch() {
+      var searchContainer = document.getElementById("search-container");
+      searchContainer.style.display = "block";
+    }
+
+    function search() {
+      // Implement your search functionality here
+      var searchTerm = document.getElementById("search-input").value;
+      alert("Searching for: " + searchTerm);
+    }
+  </script>
+
+</body>
+
+</html>

@@ -15,6 +15,7 @@ body {
     align-items: start;
     flex-wrap: wrap;
     margin-top: 50px;
+   
 }
 
 /* Styling for individual API sections with rounded edges */
@@ -26,6 +27,10 @@ body {
     width: calc(50% - 40px); /* Adjust width for spacing */
     margin: 10px; /* Spacing between elements */
     box-sizing: border-box;
+}
+
+.dictionary-api{
+    display: none;
 }
 
 /* Header styling with a subtle color accent */

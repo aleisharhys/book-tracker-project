@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Basic head elements and link to CSS -->
     <meta charset="UTF-8">
@@ -7,13 +8,14 @@
     <title>API Interfaces</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="api-container">
         <!-- Dictionary API Section -->
         <div class="dictionary-api">
             <h1>Dictionary Search</h1>
             <!-- Input field for dictionary search. Developers should attach an event listener to this input for API calls -->
-            <input type="text" id="dictionary-search" placeholder="Enter a word">
+            <input class="hidden" type="text" id="dictionary-search" placeholder="Enter a word">
             <!-- Button for triggering the dictionary search. Attach an event listener to this button for API calls -->
             <button id="search-word">Search</button>
             <!-- Display results from the dictionary API here -->
@@ -32,4 +34,5 @@
         </div>
     </div>
 </body>
+
 </html>
