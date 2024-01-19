@@ -5,9 +5,10 @@ Link to deployed site:
 https://aleisharhys.github.io/book-tracker-project/
 
 
-<img width="960" alt="Screenshot 2024-01-19 161110" src="https://github.com/aleisharhys/book-tracker-project/assets/147520136/c1b33530-6839-44b7-aa29-219a5349a8fa">
-
-This is a group project for a book tracker. It's got a simple design where you can look up books or words in a dictionary, powered by two APIs for a more comprehensive search.
+This is a group project for a book tracker. <img width="960" alt="Screenshot 2024-01-19 175336" src="https://github.com/aleisharhys/book-tracker-project/assets/147520136/6daece6d-08ab-44a7-ac8f-dbafe85b3766">
+ 
+ 
+It has a simple design where you can look up books or words in a dictionary, powered by two APIs for a more comprehensive search.
 
 Stylish Look: Uses a Orbitron font with a calm lilac and grey color theme. It's clean, modern and easy on the eyes.
 
