@@ -1,18 +1,33 @@
 /* General body styling with Georgia font, a soft background color, and centered text */
 /* General body styling with Georgia font, a soft background color, and centered text */
 body {
-    
- background-color:#e9e2f0;
-    /* Remove padding to make the body take up full height */
-    text-align: center;
-    height: 100vh;
-    /* Set height to 100% of the viewport height */
-    display: flex;
-    align-items: center;
-    /* Center vertically */
-    justify-content: center;
-    /* Center horizontally */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #e0d5ed;
 }
+
+nav {
+    background-color: #7851a9;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+h3 {
+    margin: 0;
+}
+
 
 /* Container for both APIs with a centered and responsive layout */
 .api-container {
@@ -20,7 +35,7 @@ body {
     justify-content: center;
     align-items: start;
     flex-wrap: wrap;
-    margin-top: 50px;
+    margin-top: 150px;
     width: 100%;
     /* Set width to 100% of the viewport width */
 }
