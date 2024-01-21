@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Interfaces</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -24,11 +26,20 @@
     <div class="container">
         <!-- Dictionary API Section -->
         <div class="dictionary-search">
-            <h1>Dictionary: </h1>
-            <!-- Input field for dictionary search. Developers should attach an event listener to this input for API calls -->
             <input type="text" id="dictionary-search" placeholder="Type the word here...">
             <!-- Button for triggering the dictionary search. Attach an event listener to this button for API calls -->
-            <button id="search-word">Search</button>
+            <button class="dictionary-search-btn">Search</button>
+
+            <div class="result">
+                <div class="word">
+                    <h2>Word:</h2>
+                    <button class=""><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+                <div class="">
+                    <p class></p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit..</p>
+                </div>
+            </div>
         </div>
 
         <!-- Book Tracker API Section -->
@@ -37,10 +48,13 @@
             <!-- Input field for book tracking. Developers should attach an event listener to this input for API calls -->
             <input type="text" id="book-search" placeholder="Enter book title or author">
             <!-- Button for triggering the book tracking. Attach an event listener to this button for API calls -->
-            <button id="search-book">Track</button>
+            <button class="book-search-btn">Track</button>
             <!-- Display results from the book tracker API here -->
 
         </div>
+
+
+    </div>
     </div>
 
 
