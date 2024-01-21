@@ -40,7 +40,7 @@ h3 {
     /* Set width to 100% of the viewport width */
 }
 /* Styling for individual API sections with rounded edges */
-.dictionary-api, .book-tracker-api {
+.dictionary-api, .book-search {
     background-color: white;
     padding: 20px;
     border-radius: 15px; /* Rounded edges for elegance */
@@ -50,9 +50,10 @@ h3 {
     box-sizing: border-box;
 }
 
-.dictionary-api{
+.dictionary{
     display: none;
 }
+
 
 /* Header styling with a subtle color accent */
 h1 {
@@ -94,4 +95,8 @@ button:hover {
     background-color: #eee;
     border-radius: 8px; /* Rounded edges for result areas */
     text-align: left; /* Align text to the left inside these containers */
+}
+
+.hide-book-search{
+    display: none;
 }
