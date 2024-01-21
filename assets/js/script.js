@@ -1,12 +1,14 @@
 //Here will go the dictionary work
 
-function displayDisctionary(event) {
+function displayDictionary(event) {
   event.preventDefault();
-  const hidden = document.getElementById("book-search");
-  hidden.element.classList.add("hide-book-search");
-}
+  const hidden = document.querySelector(".book-search");
+  hidden.classList.add("hide-search");
 
+  const display = document.querySelector(".dictionary-search");
+  display.classList.add("display-dictionary");
+}
 document
-  .getElementById("dictionaty")
-  .addEventListener("click", displayDisctionary);
+  .getElementById("dictionary")
+  .addEventListener("click", displayDictionary);
 // Here will the  dictionary work
