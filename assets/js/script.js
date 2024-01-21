@@ -11,4 +11,5 @@ function displayDictionary(event) {
 document
   .getElementById("dictionary")
   .addEventListener("click", displayDictionary);
+
 // Here will the  dictionary work
