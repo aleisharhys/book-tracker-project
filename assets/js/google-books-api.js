@@ -9,7 +9,6 @@ const dictionaryNav = $('#dictionary');
 const dictionaryDiv = $('#dictionary-div');
 
 let collection = [];
-//let storedCollection = JSON.parse(localStorage.getItem('collection'));
 
 // Event listener on the search button.
 searchBtn.on('click', function (e) {
@@ -47,7 +46,7 @@ function searchBook(url) {
 
                 addButton.on('click', function () {
                     collection.push(`${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`);
-                    localStorage.setItem('collection', collection);
+                    localStorage.setItem('collection', JSON.stringify(collection));
                 })
 
                 coverCell.append(coverImg);
@@ -83,3 +82,56 @@ function showNavbarContent() {
 }
 
 showNavbarContent();
+
+// Retrieve data from the local storage and render the collection of books into a table,
+// and adds a checkbox to each book to be able to mark if it's already been read.
+function loadMyBooks() {
+    let storedCollection = JSON.parse(localStorage.getItem('collection'));
+    const myBookList = document.getElementById('my-books-list');
+    for (let i = 0; i < storedCollection.length; i++) {
+        const rowEl = document.createElement('tr');
+        const indexCell = document.createElement('td');
+        indexCell.textContent = i + 1;
+        const authorAndTitleCell = document.createElement('td');
+        authorAndTitleCell.textContent = storedCollection[i];
+        const checkboxCell = document.createElement('td');
+        checkboxCell.textContent = 'Read';
+        const checkboxEl = document.createElement('input');
+        checkboxEl.setAttribute('type', 'checkbox');
+        checkboxEl.setAttribute('id', `ch${i + 1}`);
+        checkboxEl.classList.add('read');
+
+        checkboxCell.append(checkboxEl);
+        rowEl.append(indexCell, authorAndTitleCell, checkboxCell);
+        myBookList.append(rowEl);
+    }
+    const saveBtn = document.createElement('button');
+    saveBtn.textContent = 'Save';
+    saveBtn.setAttribute('id', 'saveBtn');
+    myBooksDiv.append(saveBtn);
+}
+
+function saveReadState() {
+    saveBtn.addEventListener('click', function () {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const read = [];
+
+        for (let i = 0; i < checkboxes.length; i++) {
+            read.push({ id: checkboxes[i].id, checked: checkboxes[i].checked });
+        }
+
+        localStorage.setItem('read', JSON.stringify(read));
+    })
+}
+
+function loadReadState() {
+    const readStates = JSON.parse(localStorage.getItem('read'));
+
+    for (let i = 0; i < readStates.length; i++) {
+        document.getElementById(readStates[i].id).checked = readStates[i].checked;
+    };
+}
+
+loadMyBooks();
+saveReadState();
+loadReadState();
