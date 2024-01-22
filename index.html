@@ -44,20 +44,19 @@
         <!-- Book Tracker API Section -->
         <div class="book-search">
             <h1>Book Tracker</h1>
-            <!-- Input field for book tracking. Developers should attach an event listener to this input for API calls -->
-            <input type="text" id="book-search" placeholder="Enter book title or author">
-            <!-- Button for triggering the book tracking. Attach an event listener to this button for API calls -->
-            <button class="book-search-btn">Track</button>
-            <!-- Display results from the book tracker API here -->
-
+            <form>
+                <!-- Input field for book tracking. Developers should attach an event listener to this input for API calls -->
+                <input type="text" id="book-search" placeholder="Enter book title or author">
+                <!-- Button for triggering the book tracking. Attach an event listener to this button for API calls -->
+                <button id="search-btn" class="book-search-btn">Track</button>
+                <!-- Display results from the book tracker API here -->
+            </form>
         </div>
-
-
-    </div>
     </div>
 
-
-    <script src="/assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/google-books-api.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
