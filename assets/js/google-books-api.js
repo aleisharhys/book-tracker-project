@@ -113,6 +113,7 @@ function loadMyBooks() {
     myBooksDiv.append(saveBtn);
 }
 
+// Function to allow storing state whether a book is already read or not.
 function saveReadState() {
     saveBtn.addEventListener('click', function () {
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -126,6 +127,7 @@ function saveReadState() {
     })
 }
 
+// Function to retrieve the state whether a book is already read or not.
 function loadReadState() {
     const readStates = JSON.parse(localStorage.getItem('read'));
 
