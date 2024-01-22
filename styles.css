@@ -39,20 +39,25 @@ h3 {
     width: 100%;
     /* Set width to 100% of the viewport width */
 }
+
 /* Styling for individual API sections with rounded edges */
-.dictionary-search, .book-search {
+.dictionary-search,
+.book-search {
     background-color: white;
     padding: 20px;
-    border-radius: 15px; /* Rounded edges for elegance */
+    border-radius: 15px;
+    /* Rounded edges for elegance */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: calc(50% - 40px); /* Adjust width for spacing */
-    margin: 10px; /* Spacing between elements */
+    width: calc(50% - 40px);
+    /* Adjust width for spacing */
+    margin: 10px;
+    /* Spacing between elements */
     box-sizing: border-box;
 }
 
 
 
-.dictionary-search{
+.dictionary-search {
     display: none;
 }
 
@@ -60,59 +65,71 @@ h3 {
 
 /* Header styling with a subtle color accent */
 h1 {
-    color: #7851a9; /* Elegant purple accent */
+    color: #7851a9;
+    /* Elegant purple accent */
     font-size: 24px;
 }
 
 /* Styling for input fields with rounded edges */
 input[type="text"] {
-    width: calc(100% - 22px); /* Full width with padding and border */
+    width: calc(100% - 22px);
+    /* Full width with padding and border */
     padding: 10px;
     margin: 10px 0;
-    border-radius: 8px; /* Rounded edges for input fields */
+    border-radius: 8px;
+    /* Rounded edges for input fields */
     border: 1px solid #ddd;
     box-sizing: border-box;
 }
 
 /* Styling for buttons with rounded edges and accent color */
-.dictionary-search-btn, .book-search-btn{
-    width: 100%; /* Full width button */
+.dictionary-search-btn,
+.book-search-btn {
+    width: 100%;
+    /* Full width button */
     padding: 10px 0;
-    background-color: #7851a9; /* Elegant purple background */
+    background-color: #7851a9;
+    /* Elegant purple background */
     color: white;
     border: none;
-    border-radius: 8px; /* Rounded edges for buttons */
+    border-radius: 8px;
+    /* Rounded edges for buttons */
     cursor: pointer;
     margin-top: 10px;
 }
 
 /* Button hover effect for interactive feel */
 button:hover {
-    background-color: darken(#7851a9, 10%); /* Slightly darker shade on hover */
+    background-color: darken(#7851a9, 10%);
+    /* Slightly darker shade on hover */
 }
 
 /* Result display areas with rounded edges */
-#dictionary-result, #book-result {
+#dictionary-result,
+#book-result {
     margin-top: 20px;
     padding: 15px;
     background-color: #eee;
-    border-radius: 8px; /* Rounded edges for result areas */
-    text-align: left; /* Align text to the left inside these containers */
+    border-radius: 8px;
+    /* Rounded edges for result areas */
+    text-align: left;
+    /* Align text to the left inside these containers */
 }
 
-.hide-search{
+/* The .hidden class can be used on any element to make it invisible */
+.hidden {
     display: none;
 }
 
-.display-dictionary{
+.display-dictionary {
     display: block;
 }
 
 .word {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-    
+
 }
 
 

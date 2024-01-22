@@ -42,15 +42,17 @@
         </div>
 
         <!-- Book Tracker API Section -->
-        <div class="book-search">
+        <div id="book-search-form" class="book-search">
             <h1>Book Tracker</h1>
-            <form>
-                <!-- Input field for book tracking. Developers should attach an event listener to this input for API calls -->
-                <input type="text" id="book-search" placeholder="Enter book title or author">
-                <!-- Button for triggering the book tracking. Attach an event listener to this button for API calls -->
-                <button id="search-btn" class="book-search-btn">Track</button>
-                <!-- Display results from the book tracker API here -->
-            </form>
+            <!-- Input field for book tracking. Developers should attach an event listener to this input for API calls -->
+            <input type="text" id="book-search" placeholder="Enter book title or author">
+            <!-- Button for triggering the book tracking. Attach an event listener to this button for API calls -->
+            <button id="search-btn" class="book-search-btn">Track</button>
+        </div>
+
+        <!-- Display results from the book tracker API here -->
+        <div id="results-div">
+            <table id="results"></table>
         </div>
     </div>
 
