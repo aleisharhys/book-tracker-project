@@ -1,12 +1,29 @@
 //Here will go the dictionary work
+const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
-function displayDisctionary(event) {
+function displayDictionary(event) {
   event.preventDefault();
-  const hidden = document.getElementById("book-search");
-  hidden.element.classList.add("hide-book-search");
+
+  // add class hide-search to hide the html content
+  const hidden = document.querySelector(".book-search");
+  hidden.classList.add("hide-search");
+
+  ////add a class display so we can display the dictionary
+  const display = document.querySelector(".dictionary-search");
+  display.classList.add("display-dictionary");
+
+  const results = document.getElementsByClassName("results");
+  const sound = document.getElementsByClassName("sound");
+  const button = document.getElementsByClassName("dictionary-search-btn");
+
+  button.addEventListener("click", () => {
+    const inputValue = document.getElementById("dictionary-search").value;
+    console.log(inputValue);
+  });
 }
 
 document
-  .getElementById("dictionaty")
-  .addEventListener("click", displayDisctionary);
+  .getElementById("dictionary")
+  .addEventListener("click", displayDictionary);
+
 // Here will the  dictionary work

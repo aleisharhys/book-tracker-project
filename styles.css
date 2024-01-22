@@ -30,7 +30,7 @@ h3 {
 
 
 /* Container for both APIs with a centered and responsive layout */
-.api-container {
+.container {
     display: flex;
     justify-content: center;
     align-items: start;
@@ -40,7 +40,7 @@ h3 {
     /* Set width to 100% of the viewport width */
 }
 /* Styling for individual API sections with rounded edges */
-.dictionary-api, .book-search {
+.dictionary-search, .book-search {
     background-color: white;
     padding: 20px;
     border-radius: 15px; /* Rounded edges for elegance */
@@ -50,9 +50,12 @@ h3 {
     box-sizing: border-box;
 }
 
-.dictionary{
+
+
+.dictionary-search{
     display: none;
 }
+
 
 
 /* Header styling with a subtle color accent */
@@ -72,7 +75,7 @@ input[type="text"] {
 }
 
 /* Styling for buttons with rounded edges and accent color */
-button {
+.dictionary-search-btn, .book-search-btn{
     width: 100%; /* Full width button */
     padding: 10px 0;
     background-color: #7851a9; /* Elegant purple background */
@@ -97,6 +100,23 @@ button:hover {
     text-align: left; /* Align text to the left inside these containers */
 }
 
-.hide-book-search{
+.hide-search{
     display: none;
+}
+
+.display-dictionary{
+    display: block;
+}
+
+.word {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    
+}
+
+
+.word button {
+    padding: 5px 10px;
+    cursor: pointer;
 }
