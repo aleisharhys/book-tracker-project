@@ -21,7 +21,7 @@ function displayDictionary(event) {
   button.addEventListener("click", () => {
     const inputValue = document.getElementById("dictionary-search").value;
     console.log(inputValue);
-
+    //Api fetch : word, definion, pronunciation.
     fetch(`${dictionaryURL}${inputValue}`)
       .then((response) => response.json())
       .then((data) => {
