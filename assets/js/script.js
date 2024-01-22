@@ -1,4 +1,5 @@
 //Here will go the dictionary work
+
 const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 function displayDictionary(event) {
@@ -8,27 +9,24 @@ function displayDictionary(event) {
   const hidden = document.querySelector(".book-search");
   hidden.classList.add("hide-search");
 
-  ////add a class display so we can display the dictionary
-  //const display = document.querySelector(".dictionary-search");
-  //display.classList.add("display-dictionary");
+  // add a class display so we can display the dictionary
+  const display = document.querySelector(".dictionary-search");
+  display.classList.add("display-dictionary");
 
-  const results = document.getElementsByClassName("results");
-  const sound = document.getElementsByClassName("sound");
-  const button = document.getElementsByClassName("dictionary-search-btn");
+  const button = document.querySelector(".dictionary-search-btn");
 
   button.addEventListener("click", () => {
     const inputValue = document.getElementById("dictionary-search").value;
     console.log(inputValue);
 
-    fetch(`${dictionaryURL} &{inputValue}`);
-    .then((response)=> response.json);
-    .then((data)=> console.log(data)
+    fetch(`${dictionaryURL}${inputValue}`)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   });
 }
 
 document
   .getElementById("dictionary")
   .addEventListener("click", displayDictionary);
-
 
 // Here will the  dictionary work
