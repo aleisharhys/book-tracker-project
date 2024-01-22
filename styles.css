@@ -1,5 +1,4 @@
 /* General body styling with Georgia font, a soft background color, and centered text */
-/* General body styling with Georgia font, a soft background color, and centered text */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -54,14 +53,6 @@ h3 {
     /* Spacing between elements */
     box-sizing: border-box;
 }
-
-
-
-.dictionary-search {
-    display: none;
-}
-
-
 
 /* Header styling with a subtle color accent */
 h1 {
@@ -121,17 +112,12 @@ button:hover {
     display: none;
 }
 
-.display-dictionary {
-    display: block;
-}
-
 .word {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
 }
-
 
 .word button {
     padding: 5px 10px;

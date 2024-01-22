@@ -9,8 +9,8 @@ function displayDictionary(event) {
   hidden.classList.add("hide-search");
 
   ////add a class display so we can display the dictionary
-  const display = document.querySelector(".dictionary-search");
-  display.classList.add("display-dictionary");
+  //const display = document.querySelector(".dictionary-search");
+  //display.classList.add("display-dictionary");
 
   const results = document.getElementsByClassName("results");
   const sound = document.getElementsByClassName("sound");
