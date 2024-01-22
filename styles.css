@@ -123,3 +123,11 @@ button:hover {
     padding: 5px 10px;
     cursor: pointer;
 }
+
+
+.meaning{
+    color: rgb(146, 146, 146);
+    font-family: italic;
+    border-left: 2px solid rgb(146, 146, 146);
+    padding-left: 10px;
+}
