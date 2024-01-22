@@ -19,11 +19,16 @@ function displayDictionary(event) {
   button.addEventListener("click", () => {
     const inputValue = document.getElementById("dictionary-search").value;
     console.log(inputValue);
+
+    fetch(`${dictionaryURL} &{inputValue}`);
+    .then((response)=> response.json);
+    .then((data)=> console.log(data)
   });
 }
 
 document
   .getElementById("dictionary")
   .addEventListener("click", displayDictionary);
+
 
 // Here will the  dictionary work
