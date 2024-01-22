@@ -2,6 +2,7 @@ const searchBtn = $('#search-btn');
 const searchNav = $('#search');
 const searchDiv = $('#book-search-form');
 const resultsDiv = $('#results-div');
+const resultsTable = $('#results')
 const myBooksNav = $('#my-books');
 const myBooksDiv = $('#my-books-div');
 const myBooksTable = $('#my-books-list');
@@ -14,6 +15,7 @@ let collection = [];
 searchBtn.on('click', function (e) {
     e.preventDefault();
 
+    resultsTable.text('');
     searchDiv.addClass('hidden');
     resultsDiv.removeClass('hidden');
     const searchTerm = $('#book-search').val().trim();
@@ -34,13 +36,13 @@ function searchBook(url) {
         .then(function (data) {
             const results = [data.items[0], data.items[1], data.items[2], data.items[3], data.items[5]];
             const tableEl = $('#results');
-
+            console.log(results)
             results.forEach(result => {
                 const rowEl = $('<tr>');
                 const coverCell = $('<td>');
                 const coverImg = $('<img>').attr('src', result.volumeInfo.imageLinks.smallThumbnail);
                 const authorAndTitleCell = $('<td>').text(`${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`);
-                const descriptionCell = $('<td>').text(result.volumeInfo.description);
+                const descriptionCell = $('<td>').text(result.searchInfo.textSnippet);
                 const addButtonCell = $('<td>');
                 const addButton = $('<button>').text('Add to my collection').addClass('add-collection');
 
