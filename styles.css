@@ -39,6 +39,16 @@ h3 {
     /* Set width to 100% of the viewport width */
 }
 
+/* Styling of the container when search results are rendered */
+.container-alt {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: 100%;
+}
+
 /* Styling for individual API sections with rounded edges */
 .dictionary-search,
 .book-search {
@@ -54,6 +64,21 @@ h3 {
     box-sizing: border-box;
 }
 
+/* Styling of the search div when results are rendered */
+.book-search-results {
+    display: flex;
+    background-color: white;
+    padding: 0 10px;
+    border-radius: 15px;
+    /* Rounded edges for elegance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 40px);
+    /* Adjust width for spacing */
+    margin-bottom: 30px;
+    /* Spacing between elements */
+    box-sizing: border-box;
+}
+
 /* Header styling with a subtle color accent */
 h1 {
     color: #7851a9;
@@ -62,12 +87,24 @@ h1 {
 }
 
 /* Styling for input fields with rounded edges */
-input[type="text"] {
-    width: calc(100% - 22px);
+.input {
+    width: 100%;
     /* Full width with padding and border */
     padding: 10px;
     margin: 10px 0;
     border-radius: 8px;
+    /* Rounded edges for input fields */
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Styling of the search input when results are rendered */
+.book-search-input-reults {
+    width: 100%;
+    /* Full width with padding and border */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px 0 0 8px;
     /* Rounded edges for input fields */
     border: 1px solid #ddd;
     box-sizing: border-box;
@@ -86,7 +123,21 @@ input[type="text"] {
     border-radius: 8px;
     /* Rounded edges for buttons */
     cursor: pointer;
-    margin-top: 10px;
+    margin: 10px 0;
+}
+
+/* Styling of the search button when results are rendered */
+.book-search-btn-results {
+    width: 30%;
+    padding: 10px 0;
+    background-color: #7851a9;
+    /* Elegant purple background */
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    /* Rounded edges for buttons */
+    cursor: pointer;
+    margin: 10px 0;
 }
 
 /* Button hover effect for interactive feel */
@@ -107,6 +158,11 @@ button:hover {
     /* Align text to the left inside these containers */
 }
 
+#my-books-h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
 /* The .hidden class can be used on any element to make it invisible */
 .hidden {
     display: none;
@@ -125,14 +181,14 @@ button:hover {
 }
 
 
-.meaning{
+.meaning {
     color: rgb(146, 146, 146);
     font-family: italic;
     border-left: 2px solid rgb(146, 146, 146);
     padding-left: 10px;
 }
 
-.word-details{
+.word-details {
     font-family: italic;
     font-weight: normal;
     font-size: 15px;

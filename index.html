@@ -23,11 +23,11 @@
     </nav>
 
 
-    <div class="container">
+    <div id="container" class="container">
         <!-- Dictionary API Section -->
         <div id="dictionary-div" class="dictionary-search hidden">
             <h1>Words Dictionary</h1>
-            <input type="text" id="dictionary-search" placeholder="Type the word here...">
+            <input type="text" id="dictionary-search" placeholder="Type the word here..." class="input">
             <!-- Button for triggering the dictionary search. Attach an event listener to this button for API calls -->
             <button class="dictionary-search-btn">Search</button>
 
@@ -46,11 +46,11 @@
 
         <!-- Book Tracker API Section -->
         <div id="book-search-form" class="book-search">
-            <h1>Book Tracker</h1>
+            <h1 id="book-search-h1">Book Search</h1>
             <!-- Input field for book tracking. Developers should attach an event listener to this input for API calls -->
-            <input type="text" id="book-search" placeholder="Enter book title or author">
+            <input type="text" id="book-search" placeholder="Enter book title or author" class="input">
             <!-- Button for triggering the book tracking. Attach an event listener to this button for API calls -->
-            <button id="search-btn" class="book-search-btn">Track</button>
+            <button id="search-btn" class="book-search-btn">Search</button>
         </div>
 
         <!-- Display results from the book tracker API here by using JS -->
@@ -60,6 +60,7 @@
 
         <!-- Display the My Books section that's being build from an array stored in localStorage, by using JS -->
         <div id="my-books-div" class="hidden">
+            <h1 id="my-books-h1">My book collection</h1>
             <table id="my-books-list"></table>
         </div>
     </div>
