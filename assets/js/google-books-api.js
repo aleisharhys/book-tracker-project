@@ -87,7 +87,7 @@ function searchBook(url) {
                 const authorAndTitleCell = $('<td>').text(`${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`);
 
                 // If no short description available, it will be replaced by the longer description. If the longer description also unavailable, a custom text will be displayed.
-                const descriptionCell = $('<td>').text(result.searchInfo === undefined ?
+                const descriptionCell = $('<td>').html(result.searchInfo === undefined ?
                     `${(result.volumeInfo.description === undefined ? 'No description available' : result.volumeInfo.description)}` : `${result.searchInfo.textSnippet}`)
                     .addClass('description-cell');
                 const addButtonCell = $('<td>');
