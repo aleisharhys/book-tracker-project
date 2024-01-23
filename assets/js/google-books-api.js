@@ -1,3 +1,6 @@
+// Variables to reach various DOM elements.
+const searchHeadline = $('#book-search-h1');
+const searchInput = $('#book-search');
 const searchBtn = $('#search-btn');
 const searchNav = $('#search');
 const searchDiv = $('#book-search-form');
@@ -8,13 +11,16 @@ const myBooksDiv = $('#my-books-div');
 const myBooksTable = $('#my-books-list');
 const dictionaryNav = $('#dictionary');
 const dictionaryDiv = $('#dictionary-div');
+const container = $('#container');
 
+// Variables to store and retrieve data by using the local storage.
 let collection = [];
 let readStates = {};
 
 //This function controls the menu sections in the navbar. It decides what to show and what to hide once a section is clicked.
 function showNavbarContent() {
     dictionaryNav.on('click', function () {
+        container.removeClass('container-alt').addClass('container');
         dictionaryDiv.removeClass('hidden');
         searchDiv.addClass('hidden');
         resultsDiv.addClass('hidden');
@@ -22,8 +28,14 @@ function showNavbarContent() {
     })
 
     searchNav.on('click', function () {
-        $('#book-search').val('');
+        searchInput.val('');
+
+        container.removeClass('container-alt').addClass('container');
+        searchDiv.removeClass('book-search-results').addClass('book-search');
+        searchBtn.removeClass('book-search-btn-results').addClass('book-search-btn');
+        searchInput.removeClass('book-search-input-reults').addClass('input');
         searchDiv.removeClass('hidden');
+        searchHeadline.removeClass('hidden');
         dictionaryDiv.addClass('hidden');
         resultsDiv.addClass('hidden');
         myBooksDiv.addClass('hidden');
@@ -33,6 +45,8 @@ function showNavbarContent() {
         loadMyBooks();
         saveReadState();
         loadReadState();
+
+        container.removeClass('container').addClass('container-alt');
         myBooksDiv.removeClass('hidden');
         dictionaryDiv.addClass('hidden');
         searchDiv.addClass('hidden');
@@ -49,10 +63,12 @@ searchBtn.on('click', function (e) {
     // Before displaying the current search results, previous results are getting cleared.
     resultsTable.text('');
 
-    // Hide the search input before rendering the results.
-    searchDiv.addClass('hidden');
-
-    // Make results visible by removing the hidden class.
+    // Make results visible by removing the hidden class and moving the search form to the top in smaller size by changing classes to apply the relevant CSS rules.
+    container.removeClass('container').addClass('container-alt');
+    searchDiv.removeClass('book-search').addClass('book-search-results');
+    searchHeadline.addClass('hidden');
+    searchBtn.removeClass('book-search-btn').addClass('book-search-btn-results');
+    searchInput.removeClass('input').addClass('book-search-input-reults');
     resultsDiv.removeClass('hidden');
 
     const searchTerm = $('#book-search').val().trim();
@@ -61,10 +77,10 @@ searchBtn.on('click', function (e) {
     searchBook(queryURL);
 })
 
-// This function gets an URL as a parameter and then uses the fetch API method on the given URL.
-// It stores the first 5 results in an array, then creates a table from the array element with the relevant information.
-// Also adding an event listener to all 'Add to my collection' button, so once any of them clicked, the book will be added
-// to an array called 'collection' which also will be stored in the localStorage.
+// This function gets a URL as a parameter, then uses the fetch API method on the given URL.
+// It stores the first 5 results in an array, then creates a table from the array elements with the relevant information.
+// Also adds an event listener to all 'Add to my collection' button, so once any of them clicked, the book will be added
+// to an array called 'collection'. It will be filtered from duplicates and the filtered data will be stored in the local storage.
 function searchBook(url) {
     fetch(url)
         .then(function (response) {
@@ -87,7 +103,7 @@ function searchBook(url) {
                     'assets/img/no-image-placeholder.png' : `${result.volumeInfo.imageLinks.smallThumbnail}`);
                 const authorAndTitleCell = $('<td>').text(`${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`);
 
-                // If no short description available, it will be replaced by the longer description. If the longer description also unavailable, a custom text will be displayed.
+                // If no short description available, it will be replaced by the longer description. If the longer description also missing, a custom text will be displayed.
                 const descriptionCell = $('<td>').html(result.searchInfo === undefined ?
                     `${(result.volumeInfo.description === undefined ? 'No description available' : result.volumeInfo.description)}` : `${result.searchInfo.textSnippet}`)
                     .addClass('description-cell');
@@ -123,8 +139,8 @@ function loadMyBooks() {
     let storedCollection = JSON.parse(localStorage.getItem('collection'));
 
     // If nothing is stored in the local storage, the value of storedCollection variable will be equal to an empty array.
-    // If there is/are already books stored in the local storage, those books will be added to the collection array to keep our collection up to date.
-    // Then we can push the new books to the up to date collection array which will be stored in local storage by overwriting the old array there.
+    // If there are books already stored in the local storage, those books will be added to the collection array to keep our collection up to date.
+    // Then we can push the new books to the up to date collection array which again will be stored in local storage by overwriting the old array there.
     if (storedCollection === null) {
         storedCollection = [];
     } else {
@@ -158,10 +174,8 @@ function loadMyBooks() {
     }
 }
 
-// Function to allow storing state whether a book is already read or not by using Betty Miller's solution:
-// https://copyprogramming.com/howto/javascript-save-multiple-checkboxes-with-localstorage
+// Function to allow save the state of checkboxes to local storage when displaying the 'My Books' section.
 function saveReadState() {
-    //saveBtn.addEventListener('click', function () {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
     for (let i = 0; i < checkboxes.length; i++) {
@@ -175,8 +189,7 @@ function saveReadState() {
     }
 }
 
-// Function to retrieve the state whether a book is already read or not by using Betty Miller's solution:
-// https://copyprogramming.com/howto/javascript-save-multiple-checkboxes-with-localstorage
+// Function to load the state of checkboxes from the local storage when displaying the 'My Books' section.
 function loadReadState() {
     const readStates = JSON.parse(localStorage.getItem('read'));
     if (readStates !== null) {
