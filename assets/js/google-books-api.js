@@ -72,7 +72,6 @@ function searchBook(url) {
         .then(function (data) {
             const results = [data.items[0], data.items[1], data.items[2], data.items[3], data.items[5]];
             const tableEl = $('#results');
-            console.log(results[1])
 
             // Rendering the search results to the screen.
             results.forEach(result => {
@@ -91,15 +90,21 @@ function searchBook(url) {
                 const descriptionCell = $('<td>').text(result.searchInfo === undefined ?
                     `${(result.volumeInfo.description === undefined ? 'No description available' : result.volumeInfo.description)}` : `${result.searchInfo.textSnippet}`)
                     .addClass('description-cell');
+                const addButtonCell = $('<td>');
                 const addButton = $('<button>').text('Add to my collection').addClass('add-collection');
 
                 // Adding an event listener to each "Add to my collection" button. Once one of those button is clicked, the associated data will be stored in the local storage.
                 addButton.on('click', function () {
                     const authorAndTitle = `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`;
-                    const coverUrl = result.volumeInfo.imageLinks.smallThumbnail
+                    const coverUrl = result.volumeInfo.imageLinks === undefined ?
+                        'assets/img/no-image-placeholder.png' : `${result.volumeInfo.imageLinks.smallThumbnail}`
                     const bookObject = { 'authorAndTitle': authorAndTitle, 'coverUrl': coverUrl };
                     collection.push(bookObject);
-                    localStorage.setItem('collection', JSON.stringify(collection));
+
+                    // Filtering the collection array of objects from duplicates by using chickens' solution: 
+                    // https://stackoverflow.com/a/56757215
+                    let filteredCollection = collection.filter((v, i, a) => a.findIndex(v2 => (JSON.stringify(v2) === JSON.stringify(v))) === i)
+                    localStorage.setItem('collection', JSON.stringify(filteredCollection));
                 })
 
                 coverCell.append(coverImg);
@@ -116,33 +121,28 @@ function loadMyBooks() {
     myBooksTable.text('');
     let storedCollection = JSON.parse(localStorage.getItem('collection'));
 
-    // Filtering the storedCollection array of objects from duplicates by using chickens' solution: 
-    // https://stackoverflow.com/a/56757215
-    let filteredCollection = storedCollection.filter((v, i, a) => a.findIndex(v2 => (JSON.stringify(v2) === JSON.stringify(v))) === i)
-
     // If nothing is stored in the local storage, the value of storedCollection variable will be equal to an empty array.
     // If there is/are already books stored in the local storage, those books will be added to the collection array to keep our collection up to date.
     // Then we can push the new books to the up to date collection array which will be stored in local storage by overwriting the old array there.
     if (storedCollection === null) {
         storedCollection = [];
-        filteredCollection = [];
     } else {
-        filteredCollection.forEach(book => {
+        storedCollection.forEach(book => {
             collection.push(book);
         })
     }
 
     // Rendering our collection of books to the screen
     const myBookList = document.getElementById('my-books-list');
-    for (let i = 0; i < filteredCollection.length; i++) {
+    for (let i = 0; i < storedCollection.length; i++) {
         const rowEl = document.createElement('tr');
         const indexCell = document.createElement('td');
         indexCell.textContent = i + 1;
         const coverCell = document.createElement('td');
         const coverImg = document.createElement('img');
-        coverImg.setAttribute('src', filteredCollection[i].coverUrl)
+        coverImg.setAttribute('src', storedCollection[i].coverUrl)
         const authorAndTitleCell = document.createElement('td');
-        authorAndTitleCell.textContent = filteredCollection[i].authorAndTitle;
+        authorAndTitleCell.textContent = storedCollection[i].authorAndTitle;
         const checkboxCell = document.createElement('td');
         checkboxCell.textContent = 'Read';
         const checkboxEl = document.createElement('input');
