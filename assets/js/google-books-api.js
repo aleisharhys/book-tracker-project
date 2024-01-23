@@ -156,11 +156,6 @@ function loadMyBooks() {
         rowEl.append(indexCell, coverCell, authorAndTitleCell, checkboxCell);
         myBookList.append(rowEl);
     }
-
-    // The save button will only be visible if we have at least one book added to the collection
-    if (collection.length > 0) {
-        document.getElementById('saveBtn').classList.remove("hidden");
-    }
 }
 
 // Function to allow storing state whether a book is already read or not by using Betty Miller's solution:
