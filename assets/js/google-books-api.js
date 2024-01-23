@@ -10,6 +10,7 @@ const dictionaryNav = $('#dictionary');
 const dictionaryDiv = $('#dictionary-div');
 
 let collection = [];
+let readStates = {};
 
 //This function controls the menu sections in the navbar. It decides what to show and what to hide once a section is clicked.
 function showNavbarContent() {
@@ -165,18 +166,18 @@ function loadMyBooks() {
 // Function to allow storing state whether a book is already read or not by using Betty Miller's solution:
 // https://copyprogramming.com/howto/javascript-save-multiple-checkboxes-with-localstorage
 function saveReadState() {
-    saveBtn.addEventListener('click', function () {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        const read = [];
+    //saveBtn.addEventListener('click', function () {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-        //if (checkboxes.length > 0) {
-        for (let i = 0; i < checkboxes.length; i++) {
-            read.push({ id: checkboxes[i].id, checked: checkboxes[i].checked });
-        }
-        //}
+    for (let i = 0; i < checkboxes.length; i++) {
+        const currentCheckbox = checkboxes[i];
 
-        localStorage.setItem('read', JSON.stringify(read));
-    })
+        currentCheckbox.addEventListener('change', function () {
+            readStates[currentCheckbox.id] = currentCheckbox.checked;
+
+            localStorage.setItem('read', JSON.stringify(readStates));
+        })
+    }
 }
 
 // Function to retrieve the state whether a book is already read or not by using Betty Miller's solution:
@@ -184,8 +185,10 @@ function saveReadState() {
 function loadReadState() {
     const readStates = JSON.parse(localStorage.getItem('read'));
     if (readStates !== null) {
-        for (let i = 0; i < readStates.length; i++) {
-            document.getElementById(readStates[i].id).checked = readStates[i].checked;
+        for (let i in readStates) {
+            document.getElementById(i).checked = readStates[i];
         };
+    } else {
+        localStorage.setItem('read', JSON.stringify({}));
     }
 }
