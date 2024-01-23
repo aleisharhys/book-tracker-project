@@ -1,4 +1,4 @@
-//Here will go the dictionary work
+// Here will go the dictionary work
 
 const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
@@ -15,25 +15,26 @@ function displayDictionary(event) {
   display.classList.add("display-dictionary");
 
   const button = document.querySelector(".dictionary-search-btn");
-  const wordSound = document.querySelector(".sound");
   const searchResult = document.querySelector(".search-result");
 
   button.addEventListener("click", () => {
     const inputValue = document.getElementById("dictionary-search").value;
     console.log(inputValue);
-    //Api fetch : word, definion, pronunciation.
+    //Api fetch : word, definition, pronunciation.
     fetch(`${dictionaryURL}${inputValue}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         searchResult.innerHTML = `<div class="word">
-                    <h2 class="sample">${inputValue}</h2>
+                    <h2 class="sample">${inputValue} <span class="word-details">${data[0].meanings[0].partOfSpeech} ${data[0].phonetic}</span></h2>
                     <button class="sound"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
-                <div class="word-details">
-                <p class="meaning">${data[0].meanings[0].definitions[0].definition}</p>
-                <p>
+                <div>
+                  <p class="meaning">${data[0].meanings[0].definitions[0].definition}</p>
+                  <p class="example">${data[0].meanings[0].definitions[0].example}</p>
                 </div>`;
+        //sound.setAttribute("src", `https:${data[0].phonetics[0].audio}`);
+        //console.log(sound);
       });
   });
 }
@@ -42,4 +43,4 @@ document
   .getElementById("dictionary")
   .addEventListener("click", displayDictionary);
 
-// Here will the  dictionary work
+// Here will the dictionary work

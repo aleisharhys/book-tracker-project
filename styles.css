@@ -131,3 +131,9 @@ button:hover {
     border-left: 2px solid rgb(146, 146, 146);
     padding-left: 10px;
 }
+
+.word-details{
+    font-family: italic;
+    font-weight: normal;
+    font-size: 15px;
+}
