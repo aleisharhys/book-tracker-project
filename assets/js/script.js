@@ -40,8 +40,15 @@ function displayDictionary(event) {
         }</p>
         </div>`;
 
-        const sound = document.querySelector(".sound");
-        sound.setAttribute("src", data[0].phonetics[0].audio);
+        for (i = 0; i < data[0].phonetics.length; i++) {
+          const element = data[0].phonetics[i];
+
+          if (element.audio !== "") {
+            const sound = document.querySelector(".sound");
+            sound.setAttribute("src", element.audio);
+            break;
+          }
+        }
       });
   });
 }
