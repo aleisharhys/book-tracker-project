@@ -5,10 +5,6 @@ const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 function displayDictionary(event) {
   event.preventDefault();
 
-  // add class hide-search to hide the html content
-  const hidden = document.querySelector(".book-search");
-  hidden.classList.add("hide-search");
-
   // add a class display so we can display the dictionary
   const display = document.querySelector(".dictionary-search");
   display.classList.remove("hide-search"); // Use remove instead of add
@@ -28,16 +24,14 @@ function displayDictionary(event) {
         const example = data[0].meanings[0].definitions[0].example;
 
         searchResult.innerHTML = `<div class="word">
-        <h2 class="sample">${inputValue} <span class="word-details">${
-          data[0].meanings[0].partOfSpeech
-        } ${data[0].phonetic}</span></h2>
+        <h2 class="sample">${inputValue} <span class="word-details">${data[0].meanings[0].partOfSpeech
+          } ${data[0].phonetic}</span></h2>
         <audio controls class="sound" onClick="soundOn"></audio>
         </div>
         
         <p class="meaning">${data[0].meanings[0].definitions[0].definition}</p>
-        <p class="example">${
-          example ? example : "Examples are are not avaible!"
-        }</p>
+        <p class="example">${example ? example : "Examples are are not avaible!"
+          }</p>
         </div>`;
 
         for (i = 0; i < data[0].phonetics.length; i++) {
