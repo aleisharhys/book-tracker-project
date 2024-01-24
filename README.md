@@ -1,6 +1,11 @@
-book tracker project 
 
-An aesthetic Book Tracker App that's your best reading buddy. It uses a Dictionary API to help you instantly understand tricky words in the books you read, making it a breeze to learn new words and boost your vocabulary. It's connected to a Book Search API, so you can easily discover new books that match your interests and expand your reading list. This app is your literary sidekick, making reading even more enjoyable and educational. It's like having a personal librarian in your pocket, helping you on your journey to knowledge and storytelling. So, get ready to read, learn, and explore with this awesome app by your side! 📚✨
+As a passionate team of three software developers, our mission is to create an intuitive and user-friendly book-tracker app. This innovative application empowers users to effortlessly search for their favorite books, seamlessly storing them in a local database for easy access anytime. Not only does our app enhance the overall book-tracking experience by allowing users to mark their progress with a simple checkbox, but it also goes the extra mile.
+In addition, if users encounter an unfamiliar word while reading, our app provides access to a local dictionary. This feature offers not just the meaning of the word, but also details such as its type, pronunciation, and even a sentence illustrating its usage in context. We are committed to ensuring that our book-tracker app not only organizes reading lists but also enriches the reading experience for users.
+8:33
+.///
+8:33
+As a passionate team of three software developers, our mission is to create an intuitive and user-friendly book-tracker app. This innovative application empowers users to effortlessly search for their favorite books, seamlessly storing them in a local database for easy access anytime. Not only does our app enhance the overall book-tracking experience by allowing users to mark their progress with a simple checkbox, but it also goes the extra mile.
+In addition, if users encounter an unfamiliar word while reading, our app provides access to a local dictionary. This feature offers not just the meaning of the word, but also details such as its type, pronunciation, and even a sentence illustrating its usage in context. We are committed to ensuring that our book-tracker app not only organizes reading lists but also enriches the reading experience for users.
 
 https://aleisharhys.github.io/book-tracker-project/
 <img width="960" alt="Screenshot 2024-01-24 193713" src="https://github.com/aleisharhys/book-tracker-project/assets/147520136/7a512b78-04c2-460b-9a6f-c88e7ce825c9">
