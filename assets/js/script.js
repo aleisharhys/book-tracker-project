@@ -25,21 +25,34 @@ function displayDictionary(event) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+
+        const example = data[0].meanings[0].definitions[0].example;
         searchResult.innerHTML = `<div class="word">
-                    <h2 class="sample">${inputValue} <span class="word-details">${data[0].meanings[0].partOfSpeech} ${data[0].phonetic}</span></h2>
+                    <h2 class="sample">${inputValue} <span class="word-details">${
+          data[0].meanings[0].partOfSpeech
+        } ${data[0].phonetic}</span></h2>
                     <button class="sound"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
                 <div>
-                  <p class="meaning">${data[0].meanings[0].definitions[0].definition}</p>
-                  <p class="example">${data[0].meanings[0].definitions[0].example}</p>
+                  <p class="meaning">${
+                    data[0].meanings[0].definitions[0].definition
+                  }</p>
+                  <p class="example">${
+                    example ? example : "Examples are are not avaible!"
+                  }</p>
                 </div>`;
-        //sound.setAttribute("src", `https:${data[0].phonetics[0].audio}`);
-        //console.log(sound);
+        const apiSound = sound.setAttribute(
+          "src",
+          `https:${data[0].phonetics[0].audio}`
+        );
+        const soundBtn = document.querySelector(".sound");
       });
   });
 }
-
-document
+function soundOn(e) {
+  e.preventdefaul();
+}
+const sound = document
   .getElementById("dictionary")
   .addEventListener("click", displayDictionary);
 
