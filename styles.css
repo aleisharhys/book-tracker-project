@@ -1,56 +1,202 @@
-/* General body styling */
+/* General body styling with Georgia font, a soft background color, and centered text */
 body {
-    font-family: 'Orbitron', sans-serif; /* Updated to Orbitron font */
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #e0d5ed;
 }
 
-/* Header styling for titles */
-h1, h2 {
-    color: #7851A9; /* Purple color for headers */
-    font-family: 'Orbitron', sans-serif; /* Ensuring headers use Orbitron */
+nav {
+    background-color: #7851a9;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Styling for search and hidden sections */
-#search-section, .hidden {
-    margin: 20px 0;
-    padding: 20px;
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+h3 {
+    margin: 0;
+}
+
+/* Container for both APIs with a centered and responsive layout */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    margin-top: 150px;
+    width: 100%;
+    /* Set width to 100% of the viewport width */
+}
+
+/* Styling of the container when search results are rendered */
+.container-alt {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Styling for individual API sections with rounded edges */
+.dictionary-search,
+.book-search {
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    padding: 20px;
+    border-radius: 15px;
+    /* Rounded edges for elegance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 40px);
+    /* Adjust width for spacing */
+    margin: 10px;
+    /* Spacing between elements */
+    box-sizing: border-box;
 }
 
-/* Input field styling */
-input[type="text"] {
-    width: 80%; /* Width of input field */
-    padding: 10px; /* Padding for input field */
-    margin: 10px 0; /* Margin for spacing */
-    border-radius: 5px; /* Rounded corners */
-    border: 1px solid #ddd; /* Border color */
+/* Styling of the search div when results are rendered */
+.book-search-results {
+    display: flex;
+    background-color: white;
+    padding: 0 10px;
+    border-radius: 15px;
+    /* Rounded edges for elegance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 40px);
+    /* Adjust width for spacing */
+    margin-bottom: 30px;
+    /* Spacing between elements */
+    box-sizing: border-box;
 }
 
-/* Button styling */
-button {
-    width: 50%; /* Full width of button */
-    padding: 10px; /* Padding for button */
-    background-color: #7851A9; /* Button color */
-    color: white; /* Text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
+/* Header styling with a subtle color accent */
+h1 {
+    color: #7851a9;
+    /* Elegant purple accent */
+    font-size: 24px;
 }
 
-/* Button hover effect */
+/* Styling for input fields with rounded edges */
+.input {
+    width: 100%;
+    /* Full width with padding and border */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    /* Rounded edges for input fields */
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Styling of the search input when results are rendered */
+.book-search-input-reults {
+    width: 100%;
+    /* Full width with padding and border */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px 0 0 8px;
+    /* Rounded edges for input fields */
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Styling for buttons with rounded edges and accent color */
+.dictionary-search-btn,
+.book-search-btn {
+    width: 100%;
+    /* Full width button */
+    padding: 10px 0;
+    background-color: #7851a9;
+    /* Elegant purple background */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    /* Rounded edges for buttons */
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+/* Styling of the search button when results are rendered */
+.book-search-btn-results {
+    width: 30%;
+    padding: 10px 0;
+    background-color: #7851a9;
+    /* Elegant purple background */
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    /* Rounded edges for buttons */
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+/* Button hover effect for interactive feel */
 button:hover {
-    background-color: darken(#7851A9, 10%); /* Slightly darker shade on hover */
+    background-color: darken(#7851a9, 10%);
+    /* Slightly darker shade on hover */
 }
 
-/* Hidden class for dynamic display */
+/* Result display areas with rounded edges */
+#dictionary-result,
+#book-result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #eee;
+    border-radius: 8px;
+    /* Rounded edges for result areas */
+    text-align: left;
+    /* Align text to the left inside these containers */
+}
+
+#my-books-h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+/* The .hidden class can be used on any element to make it invisible */
 .hidden {
-    display: none; /* Hide elements with 'hidden' class */
+    display: none;
 }
 
-/* Add additional styles as needed */
+.word {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.word button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.meaning {
+    color: rgb(146, 146, 146);
+    font-family: italic;
+    border-left: 2px solid rgb(146, 146, 146);
+    padding-left: 10px;
+}
+
+.word-details {
+    font-family: italic;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 600px) {
+    /* Styles for screens up to 600px wide */
+    /* Add your responsive styling here */
+    /* Example: Adjust the font size for better readability on smaller screens */
+    h1 {
+        font-size: 18px;
+    }
+}
