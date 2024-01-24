@@ -5,7 +5,7 @@ const searchBtn = $('#search-btn');
 const searchNav = $('#search');
 const searchDiv = $('#book-search-form');
 const resultsDiv = $('#results-div');
-const resultsTable = $('#results')
+const resultsCards = $('.card');
 const myBooksNav = $('#my-books');
 const myBooksDiv = $('#my-books-div');
 const myBooksTable = $('#my-books-list');
@@ -15,7 +15,7 @@ const container = $('#container');
 
 // Variables to store and retrieve data by using the local storage.
 let collection = [];
-let readStates = {};
+let readStates = JSON.parse(localStorage.getItem("read")) ?? {};
 
 //This function controls the menu sections in the navbar. It decides what to show and what to hide once a section is clicked.
 function showNavbarContent() {
@@ -61,7 +61,9 @@ searchBtn.on('click', function (e) {
     e.preventDefault();
 
     // Before displaying the current search results, previous results are getting cleared.
-    resultsTable.text('');
+    resultsCards.each(function () {
+        $(this).addClass('hidden');
+    });
 
     // Make results visible by removing the hidden class and moving the search form to the top in smaller size by changing classes to apply the relevant CSS rules.
     container.removeClass('container').addClass('container-alt');
@@ -78,7 +80,7 @@ searchBtn.on('click', function (e) {
 })
 
 // This function gets a URL as a parameter, then uses the fetch API method on the given URL.
-// It stores the first 5 results in an array, then creates a table from the array elements with the relevant information.
+// It stores the first 6 results in an array, then creates a table from the array elements with the relevant information.
 // Also adds an event listener to all 'Add to my collection' button, so once any of them clicked, the book will be added
 // to an array called 'collection'. It will be filtered from duplicates and the filtered data will be stored in the local storage.
 function searchBook(url) {
@@ -87,34 +89,32 @@ function searchBook(url) {
             return response.json();
         })
         .then(function (data) {
-            const results = [data.items[0], data.items[1], data.items[2], data.items[3], data.items[5]];
-            const tableEl = $('#results');
-
+            results = [data.items[0], data.items[1], data.items[2], data.items[3], data.items[4], data.items[5]];
+            console.log(results);
             // Rendering the search results to the screen.
-            results.forEach(result => {
-                const rowEl = $('<tr>');
-                const coverCell = $('<td>');
+            for (let i = 0; i < results.length; i++) {
+                let result = results[i]
 
+                $(`#card-${i}`).removeClass('hidden');
                 // If no cover picture available, it will be replaced by a placeholder by using Milos Rancic solution:
                 // https://stackoverflow.com/a/55696135
                 // The placeholder comes from Wikimedia Commons:
                 // https://commons.wikimedia.org/wiki/File:No-Image-Placeholder.svg
-                const coverImg = $('<img>').attr('src', result.volumeInfo.imageLinks === undefined ?
-                    'assets/img/no-image-placeholder.png' : `${result.volumeInfo.imageLinks.smallThumbnail}`);
-                const authorAndTitleCell = $('<td>').text(`${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`);
+                const coverImg = $(`#cover-img-${i}`).attr('src', result.volumeInfo.imageLinks === undefined ?
+                    'assets/img/no-image-placeholder.png' : `${result.volumeInfo.imageLinks.thumbnail}`);
+                const authorAndTitleCell = $(`#card-title-${i}`).text(result.volumeInfo.authors ? `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}` : 'Unknown Author');
 
                 // If no short description available, it will be replaced by the longer description. If the longer description also missing, a custom text will be displayed.
-                const descriptionCell = $('<td>').html(result.searchInfo === undefined ?
+                const descriptionCell = $(`#card-text-${i}`).html(result.searchInfo === undefined ?
                     `${(result.volumeInfo.description === undefined ? 'No description available' : result.volumeInfo.description)}` : `${result.searchInfo.textSnippet}`)
                     .addClass('description-cell');
-                const addButtonCell = $('<td>');
-                const addButton = $('<button>').text('Add to my collection').addClass('add-collection');
+                const addButton = $(`#card-button-${i}`).text('Add to my collection').addClass('add-collection');
 
                 // Adding an event listener to each "Add to my collection" button. Once one of those button is clicked, the associated data will be stored in the local storage.
                 addButton.on('click', function () {
                     const authorAndTitle = `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`;
                     const coverUrl = result.volumeInfo.imageLinks === undefined ?
-                        'assets/img/no-image-placeholder.png' : `${result.volumeInfo.imageLinks.smallThumbnail}`
+                        'assets/img/no-image-placeholder.png' : `${result.volumeInfo.imageLinks.thumbnail}`
                     const bookObject = { 'authorAndTitle': authorAndTitle, 'coverUrl': coverUrl };
                     collection.push(bookObject);
 
@@ -124,11 +124,11 @@ function searchBook(url) {
                     localStorage.setItem('collection', JSON.stringify(filteredCollection));
                 })
 
-                coverCell.append(coverImg);
-                addButtonCell.append(addButton);
-                rowEl.append(coverCell, authorAndTitleCell, descriptionCell, addButtonCell);
-                tableEl.append(rowEl);
-            })
+                //coverCell.append(coverImg);
+                //addButtonCell.append(addButton);
+                //rowEl.append(coverCell, authorAndTitleCell, descriptionCell, addButtonCell);
+                //tableEl.append(rowEl);
+            }
         })
 }
 
@@ -191,12 +191,7 @@ function saveReadState() {
 
 // Function to load the state of checkboxes from the local storage when displaying the 'My Books' section.
 function loadReadState() {
-    const readStates = JSON.parse(localStorage.getItem('read'));
-    if (readStates !== null) {
-        for (let i in readStates) {
-            document.getElementById(i).checked = readStates[i];
-        };
-    } else {
-        localStorage.setItem('read', JSON.stringify({}));
-    }
+    for (let i in readStates) {
+        document.getElementById(i).checked = readStates[i];
+    };
 }

@@ -42,8 +42,9 @@ h3 {
 /* Styling of the container when search results are rendered */
 .container-alt {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     flex-wrap: wrap;
     margin-top: 30px;
     width: 100%;
@@ -138,6 +139,11 @@ h1 {
     /* Rounded edges for buttons */
     cursor: pointer;
     margin: 10px 0;
+}
+
+/* Styling of culomns that contain the cards */
+.col {
+    margin-bottom: 30px;
 }
 
 /* Button hover effect for interactive feel */
