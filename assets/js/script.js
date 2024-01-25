@@ -5,17 +5,13 @@ const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 function displayDictionary(event) {
   event.preventDefault();
 
-  // add a class display so we can display the dictionary
-  const display = document.querySelector(".dictionary-search");
-  display.classList.remove("hide-search"); // Use remove instead of add
-  display.classList.add("display-dictionary");
-
   const button = document.querySelector(".dictionary-search-btn");
   const searchResult = document.querySelector(".search-result");
 
   button.addEventListener("click", () => {
     const inputValue = document.getElementById("dictionary-search").value;
     const wordResult = document.getElementById("word-result");
+
     wordResult.classList.remove("hidden");
     console.log(inputValue);
     //Api fetch : word, definition, pronunciation.
@@ -55,5 +51,16 @@ function soundOn() {
 const sound = document
   .getElementById("dictionary")
   .addEventListener("click", displayDictionary);
+
+// Event listener on the search button to trigger a modal if there's no input value
+$('#dictionary-search-btn').on('click', function (e) {
+  e.preventDefault();
+
+  $('#noInputModalLabel').modal({ show: false });
+  if ($('#dictionary-search').val() === '') {
+    $('#noInputModalLabel').modal('show');
+    return;
+  };
+})
 
 // Here will the dictionary work

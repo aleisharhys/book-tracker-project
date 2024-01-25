@@ -60,6 +60,13 @@ showNavbarContent();
 searchBtn.on('click', function (e) {
     e.preventDefault();
 
+    // If there's no input value, a modal will be triggered to inform the user
+    $('#noInputModalLabel').modal({ show: false });
+    if (searchInput.val() === '') {
+        $('#noInputModalLabel').modal('show');
+        return;
+    };
+
     // Before displaying the current search results, previous results are getting cleared.
     resultsCards.each(function () {
         $(this).addClass('hidden');
