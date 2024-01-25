@@ -239,26 +239,33 @@ tbody>tr:hover {
 
 /*Media Query*/
 
-@media only screen and (max-width: 600px) {
-
-    .container{
-        margin-top: 30px;
+ @media only screen and (max-width: 600px) {
+    .container {
+        margin-top: 50px;
     }
-   #dictionary-div{
-    width:90%;
 
-   }
+    #dictionary-div {
+        width: 90%;
+    }
 
-   .word-details{
-    margin-left: 10px;
-   }
-   .word {
-       display: block;
-   }
-   
-   audio { 
-       width: 80%;
-   }
-   
+    .word-details {
+        margin-left: 10px;
+    }
+
+    .word {
+        display: block;
+    }
+
+    audio {
+        width: 80%;
+    }
+
+    .book-search {
+        width: 90%;
+    }
+
+    .results-div {
+        display: block;
+        margin: 0 auto;
+    }
 }
-   
