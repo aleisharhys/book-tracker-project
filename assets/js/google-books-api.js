@@ -66,7 +66,7 @@ searchBtn.on('click', function (e) {
     });
 
     // Make results visible by removing the hidden class and moving the search form to the top in smaller size by changing classes to apply the relevant CSS rules.
-    container.removeClass('container').addClass('container-alt');
+    container.addClass('container-alt');
     searchDiv.removeClass('book-search').addClass('book-search-results');
     searchHeadline.addClass('hidden');
     searchBtn.removeClass('book-search-btn').addClass('book-search-btn-results');
@@ -90,7 +90,7 @@ function searchBook(url) {
         })
         .then(function (data) {
             results = [data.items[0], data.items[1], data.items[2], data.items[3], data.items[4], data.items[5]];
-            console.log(results);
+
             // Rendering the search results to the screen.
             for (let i = 0; i < results.length; i++) {
                 let result = results[i]

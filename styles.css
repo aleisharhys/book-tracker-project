@@ -116,7 +116,8 @@ h1 {
 
 /* Styling for buttons with rounded edges and accent color */
 .dictionary-search-btn,
-.book-search-btn {
+.book-search-btn,
+.add-btn {
     width: 100%;
     /* Full width button */
     padding: 10px 0;
@@ -146,8 +147,11 @@ h1 {
 
 /* Button hover effect for interactive feel */
 button:hover {
-    background-color: darken(#7851a9, 10%);
-    /* Slightly darker shade on hover */
+    background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+}
+
+.add-btn:hover {
+    background-color: #7851a9;
 }
 
 /* Result display areas with rounded edges */
@@ -162,7 +166,13 @@ button:hover {
     /* Align text to the left inside these containers */
 }
 
-/* Styling of culomns that contain the cards */
+.card-div {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+/* Styling of columns that contain the cards */
 .col {
     margin-bottom: 30px;
 }
