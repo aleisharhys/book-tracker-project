@@ -17,10 +17,6 @@ body {
     margin-right: 0 !important;
 }
 
-table {
-    text-align: center;
-}
-
 footer {
     position: fixed;
     left: 0;
@@ -207,6 +203,8 @@ button:hover {
 }
 
 table {
+    text-align: center;
+    padding: 5px;
     border-spacing: 0;
     border-collapse: separate;
     border-radius: 15px;
