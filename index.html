@@ -46,7 +46,7 @@
             <input type="text" id="dictionary-search" placeholder="Type the word here..." class="input" onkeydown="if (event.keyCode == 13) {
                         document.getElementById('dictionary-search-btn').click()}">
             <!-- Button for triggering the dictionary search. Attach an event listener to this button for API calls -->
-            <button class="dictionary-search-btn">Search</button>
+            <button id="dictionary-search-btn" class="dictionary-search-btn">Search</button>
             <div id="word-result" class="search-result hidden">
                 <div class="word"></div>
                 <div class="word-details">
