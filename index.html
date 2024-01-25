@@ -43,7 +43,8 @@
         <!-- Dictionary API Section -->
         <div id="dictionary-div" class="dictionary-search hidden">
             <h1>Words Dictionary</h1>
-            <input type="text" id="dictionary-search" placeholder="Type the word here..." class="input">
+            <input type="text" id="dictionary-search" placeholder="Type the word here..." class="input" onkeydown="if (event.keyCode == 13) {
+                        document.getElementById('dictionary-search-btn').click()}">
             <!-- Button for triggering the dictionary search. Attach an event listener to this button for API calls -->
             <button class="dictionary-search-btn">Search</button>
             <div id="word-result" class="search-result hidden">
@@ -57,7 +58,8 @@
         <div id="book-search-form" class="book-search">
             <h1 id="book-search-h1">Book Search</h1>
             <!-- Input field for book tracking. Developers should attach an event listener to this input for API calls -->
-            <input type="text" id="book-search" placeholder="Enter book title or author" class="input">
+            <input type="text" id="book-search" placeholder="Enter book title or author" class="input" onkeydown="if (event.keyCode == 13) {
+                        document.getElementById('search-btn').click()}">
             <!-- Button for triggering the book tracking. Attach an event listener to this button for API calls -->
             <button id="search-btn" class="book-search-btn">Search</button>
         </div>
