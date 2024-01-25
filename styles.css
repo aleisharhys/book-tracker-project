@@ -27,6 +27,9 @@ h3 {
     margin: 0;
 }
 
+table {
+    text-align: center;
+}
 
 /* Container for both APIs with a centered and responsive layout */
 .container {
@@ -141,11 +144,6 @@ h1 {
     margin: 10px 0;
 }
 
-/* Styling of culomns that contain the cards */
-.col {
-    margin-bottom: 30px;
-}
-
 /* Button hover effect for interactive feel */
 button:hover {
     background-color: darken(#7851a9, 10%);
@@ -164,9 +162,43 @@ button:hover {
     /* Align text to the left inside these containers */
 }
 
+/* Styling of culomns that contain the cards */
+.col {
+    margin-bottom: 30px;
+}
+
+/* Styling of the My Books table */
 #my-books-h1 {
     text-align: center;
     margin-top: 0;
+}
+
+.my-books-cover {
+    width: 40%;
+    height: 40%;
+}
+
+#id-head {
+    border-radius: 8px 0 0 0;
+}
+
+#read-head {
+    border-radius: 0 8px 0 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 10px;
+    background-color: white;
+}
+
+thead>tr>th {
+    border-bottom: 1px solid black;
+}
+
+tbody>tr:hover {
+    background-color: #e0d5ed;
 }
 
 /* The .hidden class can be used on any element to make it invisible */
@@ -181,12 +213,6 @@ button:hover {
 
 }
 
-.word button {
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-
 .meaning {
     color: rgb(146, 146, 146);
     font-family: italic;
@@ -198,4 +224,12 @@ button:hover {
     font-family: italic;
     font-weight: normal;
     font-size: 15px;
+}
+
+
+/* Overwritten CSS rule coming from Bootstrap */
+
+/* Remove padding around cover pictures in the My Books table */
+.table>:not(caption)>*>* {
+    padding: 0;
 }
