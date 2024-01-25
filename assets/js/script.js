@@ -15,6 +15,8 @@ function displayDictionary(event) {
 
   button.addEventListener("click", () => {
     const inputValue = document.getElementById("dictionary-search").value;
+    const wordResult = document.getElementById("word-result");
+    wordResult.classList.remove("hidden");
     console.log(inputValue);
     //Api fetch : word, definition, pronunciation.
     fetch(`${dictionaryURL}${inputValue}`)
@@ -24,11 +26,10 @@ function displayDictionary(event) {
         const example = data[0].meanings[0].definitions[0].example;
 
         searchResult.innerHTML = `<div class="word">
-        <h2 class="sample">${inputValue} <span class="word-details">${
-          data[0].meanings[0].partOfSpeech
-        } ${data[0].phonetic}</span></h2>
+        <h2 class="sample">${inputValue} <span class="word-details">${data[0].meanings[0].partOfSpeech
+          } ${data[0].phonetic}</span></h2>
         <div class="audio">
-         <audio controls class="sound" onClick="soundOn"></audio>
+        <audio controls class="sound" onClick="soundOn"></audio>
         </div>
         </div>
         
