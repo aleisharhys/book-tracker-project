@@ -241,24 +241,25 @@ tbody>tr:hover {
 
 @media only screen and (max-width: 600px) {
 
-    .container{
+    .container {
         margin-top: 30px;
     }
-   #dictionary-div{
-    width:90%;
 
-   }
+    #dictionary-div {
+        width: 90%;
 
-   .word-details{
-    margin-left: 10px;
-   }
-   .word {
-       display: block;
-   }
-   
-   audio { 
-       width: 80%;
-   }
-   
+    }
+
+    .word-details {
+        margin-left: 10px;
+    }
+
+    .word {
+        display: block;
+    }
+
+    audio {
+        width: 80%;
+    }
+
 }
-   
