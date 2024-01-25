@@ -178,19 +178,12 @@ button:hover {
     height: 40%;
 }
 
-#id-head {
-    border-radius: 8px 0 0 0;
-}
-
-#read-head {
-    border-radius: 0 8px 0 0;
-}
-
 table {
     border-spacing: 0;
     border-collapse: separate;
-    border-radius: 10px;
+    border-radius: 15px;
     background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 thead>tr>th {
