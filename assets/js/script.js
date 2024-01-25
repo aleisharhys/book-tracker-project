@@ -24,14 +24,16 @@ function displayDictionary(event) {
         const example = data[0].meanings[0].definitions[0].example;
 
         searchResult.innerHTML = `<div class="word">
-        <h2 class="sample">${inputValue} <span class="word-details">${data[0].meanings[0].partOfSpeech
-          } ${data[0].phonetic}</span></h2>
-        <audio controls class="sound" onClick="soundOn"></audio>
+        <h2 class="sample">${inputValue} <span class="word-details">${
+          data[0].meanings[0].partOfSpeech
+        } ${data[0].phonetic}</span></h2>
+        <div class="audio">
+         <audio controls class="sound" onClick="soundOn"></audio>
+        </div>
         </div>
         
         <p class="meaning">${data[0].meanings[0].definitions[0].definition}</p>
-        <p class="example">${example ? example : "Examples are are not avaible!"
-          }</p>
+        <p class="example">${example ? example : "No example avaible!"}</p>
         </div>`;
 
         for (i = 0; i < data[0].phonetics.length; i++) {
