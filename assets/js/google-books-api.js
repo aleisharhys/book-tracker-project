@@ -120,7 +120,7 @@ function searchBook(url) {
 
                     // Filtering the collection array of objects from duplicates by using chickens' solution: 
                     // https://stackoverflow.com/a/56757215
-                    let filteredCollection = collection.filter((v, i, a) => a.findIndex(v2 => (JSON.stringify(v2) === JSON.stringify(v))) === i)
+                    let filteredCollection = collection.filter((v, i, a) => a.findIndex(v2 => (JSON.stringify(v2) === JSON.stringify(v))) === i);
                     localStorage.setItem('collection', JSON.stringify(filteredCollection));
                 })
             }
