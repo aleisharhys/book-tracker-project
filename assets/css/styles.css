@@ -194,6 +194,14 @@ tbody>tr:hover {
     background-color: #e0d5ed;
 }
 
+tbody>tr:last-child>th:first-child {
+    border-radius: 0 0 0 15px;
+}
+
+tbody>tr:last-child>td:last-child {
+    border-radius: 0 0 15px 0;
+}
+
 /* The .hidden class can be used on any element to make it invisible */
 .hidden {
     display: none;
@@ -229,7 +237,7 @@ tbody>tr:hover {
 
 /*Media Query*/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .container {
         margin-top: 50px;
     }
@@ -258,8 +266,8 @@ tbody>tr:hover {
         display: block;
         margin: 0 auto;
     }
-.book-search-results {
-    width: 90%;
-}
 
+    .book-search-results {
+        width: 90%;
+    }
 }
