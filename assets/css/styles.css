@@ -258,4 +258,8 @@ tbody>tr:hover {
         display: block;
         margin: 0 auto;
     }
+.book-search-results {
+    width: 90%;
+}
+
 }
