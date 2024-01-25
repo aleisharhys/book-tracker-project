@@ -80,7 +80,7 @@ searchBtn.on('click', function (e) {
 })
 
 // This function gets a URL as a parameter, then uses the fetch API method on the given URL.
-// It stores the first 6 results in an array, then creates a table from the array elements with the relevant information.
+// It stores the first 6 results in an array, renders them into Bootstrap cards from the array elements with the relevant information.
 // Also adds an event listener to all 'Add to my collection' button, so once any of them clicked, the book will be added
 // to an array called 'collection'. It will be filtered from duplicates and the filtered data will be stored in the local storage.
 function searchBook(url) {
@@ -123,11 +123,6 @@ function searchBook(url) {
                     let filteredCollection = collection.filter((v, i, a) => a.findIndex(v2 => (JSON.stringify(v2) === JSON.stringify(v))) === i)
                     localStorage.setItem('collection', JSON.stringify(filteredCollection));
                 })
-
-                //coverCell.append(coverImg);
-                //addButtonCell.append(addButton);
-                //rowEl.append(coverCell, authorAndTitleCell, descriptionCell, addButtonCell);
-                //tableEl.append(rowEl);
             }
         })
 }
@@ -151,26 +146,40 @@ function loadMyBooks() {
 
     // Rendering our collection of books to the screen
     const myBookList = document.getElementById('my-books-list');
+    const theadEl = document.createElement('thead');
+    const headRowEl = document.createElement('tr');
+    const idHeadEl = document.createElement('th');
+    idHeadEl.textContent = '#';
+    const coverHeadEl = document.createElement('th');
+    coverHeadEl.textContent = 'Cover';
+    const bookHeadEl = document.createElement('th');
+    bookHeadEl.textContent = 'Author and Title';
+    const readHeadEl = document.createElement('th');
+    readHeadEl.textContent = 'Already read?';
+    headRowEl.append(idHeadEl, coverHeadEl, bookHeadEl, readHeadEl);
+    theadEl.append(headRowEl);
+    const tbodyEl = document.createElement('tbody');
+    myBookList.append(theadEl, tbodyEl);
+
     for (let i = 0; i < storedCollection.length; i++) {
         const rowEl = document.createElement('tr');
-        const indexCell = document.createElement('td');
+        const indexCell = document.createElement('th');
         indexCell.textContent = i + 1;
         const coverCell = document.createElement('td');
         const coverImg = document.createElement('img');
+        coverImg.classList.add('my-books-cover');
         coverImg.setAttribute('src', storedCollection[i].coverUrl)
         const authorAndTitleCell = document.createElement('td');
         authorAndTitleCell.textContent = storedCollection[i].authorAndTitle;
         const checkboxCell = document.createElement('td');
-        checkboxCell.textContent = 'Read';
         const checkboxEl = document.createElement('input');
         checkboxEl.setAttribute('type', 'checkbox');
         checkboxEl.setAttribute('id', `ch${i + 1}`);
         checkboxEl.classList.add('read');
-
         coverCell.append(coverImg);
         checkboxCell.append(checkboxEl);
         rowEl.append(indexCell, coverCell, authorAndTitleCell, checkboxCell);
-        myBookList.append(rowEl);
+        tbodyEl.append(rowEl);
     }
 }
 
