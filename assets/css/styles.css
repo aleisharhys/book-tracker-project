@@ -1,20 +1,13 @@
 /* General body styling with Georgia font, a soft background color, and centered text */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     background-color: #e0d5ed;
 }
 
-.navbar-custom {
-    background-color: #7851a9;
-    color: #fff;
-}
 
-.navbar-nav {
-    margin-left: auto;
-    margin-right: 0 !important;
+nav{
+    background-color:#7851a9;
+      
 }
 
 table {
