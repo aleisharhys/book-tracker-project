@@ -202,24 +202,24 @@ table {
   margin: 0 auto;
   padding: 30px;
 }
+
 tr {
-  font-family: italic;
   margin-top: 10px;
 }
-thead > tr > th {
+
+thead>tr>th {
   border-bottom: 1px solid black;
-  font-family: italic;
 }
 
-tbody > tr:hover {
+tbody>tr:hover {
   background-color: #e0d5ed;
 }
 
-tbody > tr:last-child > th:first-child {
+tbody>tr:last-child>th:first-child {
   border-radius: 0 0 0 15px;
 }
 
-tbody > tr:last-child > td:last-child {
+tbody>tr:last-child>td:last-child {
   border-radius: 0 0 15px 0;
 }
 
@@ -263,13 +263,14 @@ footer {
 /* Overwritten CSS rule coming from Bootstrap */
 
 /* Remove padding around cover pictures in the My Books table */
-.table > :not(caption) > * > * {
+.table> :not(caption)>*>* {
   padding: 0;
 }
 
 /*Media Query*/
 
 @media only screen and (max-width: 992px) {
+
   /* Media query breaking point changed due to bootsrap rules that were not applying on every single scree */
   .container {
     margin-top: 50px;
