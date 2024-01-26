@@ -43,6 +43,7 @@ function displayDictionary(event) {
           }
         }
       });
+    $("#dictionary-search").val("");
   });
 }
 function soundOn() {
@@ -53,6 +54,7 @@ const sound = document
   .addEventListener("click", displayDictionary);
 
 // Event listener on the search button to trigger a modal if there's no input value
+// Claudio Redi's solution (edited by unknown user): https://stackoverflow.com/a/11404777
 $('#dictionary-search-btn').on('click', function (e) {
   e.preventDefault();
 
