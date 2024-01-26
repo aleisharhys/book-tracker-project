@@ -61,6 +61,7 @@ searchBtn.on('click', function (e) {
     e.preventDefault();
 
     // If there's no input value, a modal will be triggered to inform the user
+    // Claudio Redi's solution (edited by unknown user): https://stackoverflow.com/a/11404777
     $('#noInputModalLabel').modal({ show: false });
     if (searchInput.val() === '') {
         $('#noInputModalLabel').modal('show');
@@ -84,10 +85,11 @@ searchBtn.on('click', function (e) {
     const queryURL = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`;
 
     searchBook(queryURL);
+    searchInput.val('');
 })
 
 // This function gets a URL as a parameter, then uses the fetch API method on the given URL.
-// It stores the first 6 results in an array, renders them into Bootstrap cards from the array elements with the relevant information.
+// It stores the first 8 results in an array, renders them into Bootstrap cards from the array elements with the relevant information.
 // Also adds an event listener to all 'Add to my collection' button, so once any of them clicked, the book will be added
 // to an array called 'collection'. It will be filtered from duplicates and the filtered data will be stored in the local storage.
 function searchBook(url) {
@@ -96,7 +98,7 @@ function searchBook(url) {
             return response.json();
         })
         .then(function (data) {
-            results = [data.items[0], data.items[1], data.items[2], data.items[3], data.items[4], data.items[5]];
+            results = [data.items[0], data.items[1], data.items[2], data.items[3], data.items[4], data.items[5], data.items[6], data.items[7]];
 
             // Rendering the search results to the screen.
             for (let i = 0; i < results.length; i++) {

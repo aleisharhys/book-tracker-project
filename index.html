@@ -18,6 +18,7 @@
     <nav class="navbar navbar-dark navbar-expand-lg navbar-custom">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">Book Tracker</a>
+            <!-- To trigger the button, Sergey Ilinsky's solution (edited by icedwater) used: https://stackoverflow.com/a/155272 -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,6 +43,7 @@
         <!-- Dictionary API Section -->
         <div id="dictionary-div" class="dictionary-search hidden">
             <h1>Words Dictionary</h1>
+            <!-- To trigger the button, Sergey Ilinsky's solution (edited by icedwater) used: https://stackoverflow.com/a/155272 -->
             <input type="text" id="dictionary-search" placeholder="Type the word here..." class="input" onkeydown="if (event.keyCode == 13) {
                         document.getElementById('dictionary-search-btn').click()}">
             <!-- Button for triggering the dictionary search. Attach an event listener to this button for API calls -->
@@ -84,8 +86,8 @@
 
     <!-- Display results from the book tracker API here by using JS -->
     <div id="results-div" class="hidden">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 card-div">
+        <div id="card-row" class="row">
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 card-div">
                 <div id="card-0" class="card hidden" style="width: 18rem;">
                     <img id="cover-img-0" class="card-img-top">
                     <div id="card-body-0" class="card-body d-flex justify-content-between flex-column">
@@ -96,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 card-div">
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 card-div">
                 <div id="card-1" class="card hidden" style="width: 18rem;">
                     <img id="cover-img-1" class="card-img-top">
                     <div id="card-body-1" class="card-body d-flex justify-content-between flex-column">
@@ -107,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 card-div">
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 card-div">
                 <div id="card-2" class="card hidden" style="width: 18rem;">
                     <img id="cover-img-2" class="card-img-top">
                     <div id="card-body-2" class="card-body d-flex justify-content-between flex-column">
@@ -118,7 +120,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 card-div">
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 card-div">
                 <div id="card-3" class="card hidden" style="width: 18rem;">
                     <img id="cover-img-3" class="card-img-top">
                     <div id="card-body-3" class="card-body d-flex justify-content-between flex-column">
@@ -129,7 +131,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 card-div">
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 card-div">
                 <div id="card-4" class="card hidden" style="width: 18rem;">
                     <img id="cover-img-4" class="card-img-top">
                     <div id="card-body-4" class="card-body d-flex justify-content-between flex-column">
@@ -140,13 +142,35 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 card-div">
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 card-div">
                 <div id="card-5" class="card hidden" style="width: 18rem;">
                     <img id="cover-img-5" class="card-img-top">
                     <div id="card-body-5" class="card-body d-flex justify-content-between flex-column">
                         <h5 id="card-title-5" class="card-title"></h5>
                         <p id="card-text-5" class="card-text"></p>
                         <button id="card-button-5" class="btn btn-primary add-btn" data-bs-toggle="modal"
+                            data-bs-target="#addedModal"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 card-div">
+                <div id="card-6" class="card hidden" style="width: 18rem;">
+                    <img id="cover-img-6" class="card-img-top">
+                    <div id="card-body-6" class="card-body d-flex justify-content-between flex-column">
+                        <h5 id="card-title-6" class="card-title"></h5>
+                        <p id="card-text-6" class="card-text"></p>
+                        <button id="card-button-6" class="btn btn-primary add-btn" data-bs-toggle="modal"
+                            data-bs-target="#addedModal"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 card-div">
+                <div id="card-7" class="card hidden" style="width: 18rem;">
+                    <img id="cover-img-7" class="card-img-top">
+                    <div id="card-body-7" class="card-body d-flex justify-content-between flex-column">
+                        <h5 id="card-title-7" class="card-title"></h5>
+                        <p id="card-text-7" class="card-text"></p>
+                        <button id="card-button-7" class="btn btn-primary add-btn" data-bs-toggle="modal"
                             data-bs-target="#addedModal"></button>
                     </div>
                 </div>
