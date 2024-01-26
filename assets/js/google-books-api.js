@@ -99,7 +99,7 @@ function searchBook(url) {
         })
         .then(function (data) {
             results = [data.items[0], data.items[1], data.items[2], data.items[3], data.items[4], data.items[5], data.items[6], data.items[7]];
-            console.log(results)
+
             // Rendering the search results to the screen.
             for (let i = 0; i < results.length; i++) {
                 let result = results[i]
