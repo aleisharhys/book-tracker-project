@@ -10,6 +10,7 @@ body {
 
 .navbar-custom {
     background-color: #7851a9;
+    color: #fff;
 }
 
 .navbar-nav {
@@ -186,16 +187,13 @@ button:hover {
     padding-bottom: 20px;
 }
 
-#card-row {
-    --bs-gutter-x: 0;
-}
-
 /* Styling of columns that contain the cards */
 .col {
     margin-bottom: 30px;
 }
 
 /* Styling of the My Books table */
+
 
 
 #my-books-h1 {
@@ -209,9 +207,6 @@ button:hover {
 }
 
 table {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
     padding: 5px;
     border-spacing: 0;
@@ -262,6 +257,9 @@ tbody>tr:last-child>td:last-child {
     font-size: 15px;
 }
 
+
+/* Overwritten CSS rule coming from Bootstrap */
+
 /* Remove padding around cover pictures in the My Books table */
 .table>:not(caption)>*>* {
     padding: 0;
@@ -269,7 +267,7 @@ tbody>tr:last-child>td:last-child {
 
 /*Media Query*/
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
     .container {
         margin-top: 50px;
     }
@@ -303,7 +301,10 @@ tbody>tr:last-child>td:last-child {
         width: 90%;
     }
 
-    table {
-        width: 90%;
-    }
+        footer {
+            text-align: center;
+            font-size: 8px;
+            padding: 10px;
+        }
+
 }
