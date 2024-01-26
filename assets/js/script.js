@@ -1,6 +1,7 @@
 // Here will go the dictionary work
 
 const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+//This funtion will display the dictionary api data
 
 function displayDictionary(event) {
   event.preventDefault();
@@ -31,7 +32,7 @@ function displayDictionary(event) {
         <p class="meaning">${data[0].meanings[0].definitions[0].definition}</p>
         <p class="example"></p>
         </div>`;
-
+        //Will iterate through the array and find the exapmple avaible.
         for (i = 0; i < data[0].meanings[0].definitions.length; i++) {
           const exampleElement = data[0].meanings[0].definitions[i];
 
@@ -55,6 +56,9 @@ function displayDictionary(event) {
     $("#dictionary-search").val("");
   });
 }
+
+//This function will trigger the audio in the dictionary
+
 function soundOn() {
   sound.play();
 }
