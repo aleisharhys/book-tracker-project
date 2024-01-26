@@ -199,10 +199,16 @@ table {
   border-radius: 15px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  padding: 30px;
 }
-
+tr {
+  font-family: italic;
+  margin-top: 10px;
+}
 thead > tr > th {
   border-bottom: 1px solid black;
+  font-family: italic;
 }
 
 tbody > tr:hover {
