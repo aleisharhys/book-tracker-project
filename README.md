@@ -21,19 +21,19 @@ This book tracker app is an all-in-one solution for book readers. It provides a 
 
 ## Screenshots
 Screenshot of the book search interface
-![Screenshot of the book search interface](assets\img\book-collection.png)
+![Screenshot of the book search interface](assets/img/book-collection.png)
 
 Screenshot of the book search results
-![Screenshot of the book search results](assets\img\book-results.png)
+![Screenshot of the book search results](assets/img/book-results.png)
 
 Screenshot of the book collection
-![Screenshot of the book collection](assets\img\book-collection.png)
+![Screenshot of the book collection](assets/img/book-collection.png)
 
 Screenshot of the dictionary interface
-![Screenshot of the dictionary interface](assets\img\dictionary.png)
+![Screenshot of the dictionary interface](assets/img/dictionary.png)
 
 Screenshot of the dictionary in use
-![Screenshot of the dictionary in use](assets\img\dictionary-result.png)
+![Screenshot of the dictionary in use](assets/img/dictionary-result.png)
 
 ## Links
 [Link to the deployed application](https://aleisharhys.github.io/book-tracker-project/)
