@@ -99,7 +99,7 @@ function searchBook(url) {
         })
         .then(function (data) {
             results = [data.items[0], data.items[1], data.items[2], data.items[3], data.items[4], data.items[5], data.items[6], data.items[7]];
-
+            console.log(results)
             // Rendering the search results to the screen.
             for (let i = 0; i < results.length; i++) {
                 let result = results[i]
@@ -118,15 +118,10 @@ function searchBook(url) {
                     `${(result.volumeInfo.description === undefined ? 'No description available' : result.volumeInfo.description)}` : `${result.searchInfo.textSnippet}`)
                     .addClass('description-cell');
                 const addButton = $(`#card-button-${i}`).text('Add to my collection').addClass('add-collection');
-
                 // Adding an event listener to each "Add to my collection" button. Once one of those button is clicked, the associated data will be stored in the local storage.
                 addButton.on('click', function () {
-                    const authorAndTitle = ''
-                    if (result.volumeInfo.authors.length > 1) {
-                        authorAndTitle = `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`;
-                    } else {
-                        authorAndTitle = `${result.volumeInfo.authors} - ${result.volumeInfo.title}`;
-                    }
+                    const authorAndTitle = result.volumeInfo.authors.length === 1 ?
+                        `${result.volumeInfo.authors} - ${result.volumeInfo.title}` : `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`;
                     const coverUrl = result.volumeInfo.imageLinks === undefined ?
                         'assets/img/no-image-placeholder.png' : `${result.volumeInfo.imageLinks.thumbnail}`
                     const bookObject = { 'authorAndTitle': authorAndTitle, 'coverUrl': coverUrl };
