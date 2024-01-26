@@ -121,7 +121,12 @@ function searchBook(url) {
 
                 // Adding an event listener to each "Add to my collection" button. Once one of those button is clicked, the associated data will be stored in the local storage.
                 addButton.on('click', function () {
-                    const authorAndTitle = `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`;
+                    const authorAndTitle = ''
+                    if (result.volumeInfo.authors.length > 1) {
+                        authorAndTitle = `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`;
+                    } else {
+                        authorAndTitle = `${result.volumeInfo.authors} - ${result.volumeInfo.title}`;
+                    }
                     const coverUrl = result.volumeInfo.imageLinks === undefined ?
                         'assets/img/no-image-placeholder.png' : `${result.volumeInfo.imageLinks.thumbnail}`
                     const bookObject = { 'authorAndTitle': authorAndTitle, 'coverUrl': coverUrl };
