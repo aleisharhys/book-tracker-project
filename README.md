@@ -21,7 +21,7 @@ This book tracker app is an all-in-one solution for book readers. It provides a 
 
 ## Screenshots
 Screenshot of the book search interface
-![Screenshot of the book search interface](assets/img/book-collection.png)
+![Screenshot of the book search interface](assets/img/book-search.png)
 
 Screenshot of the book search results
 ![Screenshot of the book search results](assets/img/book-results.png)
