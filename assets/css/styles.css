@@ -190,13 +190,12 @@ button:hover {
 }
 
 .my-books-cover {
-  width: 40%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
 }
 
 table {
   text-align: center;
-  padding: 5px;
   border-spacing: 0;
   border-collapse: separate;
   border-radius: 15px;
