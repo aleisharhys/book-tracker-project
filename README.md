@@ -50,7 +50,7 @@ Screenshot of the dictionary in use
 ## Other sources
 - Storing the state of checkboxes in localStorage (in early stages of development): [Betty Miller's solution on CopyProgramming](https://copyprogramming.com/howto/javascript-save-multiple-checkboxes-with-localstorage)
 - How to filter array of objects: [Chickens' solution on StackOverflow](https://stackoverflow.com/a/56757215)
-- Image placeholder if no cover picture available: [No-Image-Placeholder.svg from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:No-Image-Placeholder.svg)
+- Image placeholder if no cover picture available (in early stages of development): [No-Image-Placeholder.svg from Wikimedia Commons](https://commons.wikimedia.org/wiki/File:No-Image-Placeholder.svg)
 - Replacing cover picture, description, author or title if unavailable from the API: [Milos Rancic's solution on StackOverflow](https://stackoverflow.com/a/55696135)
 - Trigger the search button if Enter key is pressed: [Sergey Ilinsky's solution (edited by icedwater) on StackOverflow](https://stackoverflow.com/a/155272)
 - Trigger a modal only if there's no input value: [Claudio Redi's solution (edited by unknown user) on StackOverflow](https://stackoverflow.com/a/11404777)
