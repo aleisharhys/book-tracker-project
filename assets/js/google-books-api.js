@@ -104,14 +104,11 @@ function searchBook(url) {
             // Rendering the search results to the screen.
             for (let i = 0; i < results.length; i++) {
                 let result = results[i]
-
+                const bookID = result.id;
+                coverURL = `https://books.google.com/books/content?id=${bookID}&printsec=frontcover&img=2&zoom=2&edge=curl&source=gbs_api`;
                 $(`#card-${i}`).removeClass('hidden');
-                // If no cover picture available, it will be replaced by a placeholder by using Milos Rancic solution:
-                // https://stackoverflow.com/a/55696135
-                // The placeholder comes from Wikimedia Commons:
-                // https://commons.wikimedia.org/wiki/File:No-Image-Placeholder.svg
-                const coverImg = $(`#cover-img-${i}`).attr('src', result.volumeInfo.imageLinks === undefined ?
-                    'assets/img/no-image-placeholder.png' : `${result.volumeInfo.imageLinks.thumbnail}`);
+
+                const coverImg = $(`#cover-img-${i}`).attr('src', coverURL);
                 const authorAndTitleCell = $(`#card-title-${i}`).text(result.volumeInfo.authors ? `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}` : 'Unknown Author');
 
                 // If no short description available, it will be replaced by the longer description. If the longer description also missing, a custom text will be displayed.
@@ -128,7 +125,7 @@ addToCollectionBtn.on('click', function (e) {
     e.preventDefault();
 
     const authorAndTitle = $(this).siblings('.card-title').text();
-    const coverUrl = $(this).parent().siblings('.card-img-top').attr('src');
+    const coverUrl = $(this).parent().siblings('.card-img-top').attr('src').replace('zoom=2', 'zoom=1');
     const bookObject = { 'authorAndTitle': authorAndTitle, 'coverUrl': coverUrl };
 
     collection.push(bookObject);
