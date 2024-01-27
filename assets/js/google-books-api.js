@@ -1,4 +1,5 @@
-// Variables to reach various DOM elements.
+// Variables to store DOM elements.
+const container = $('#container');
 const searchHeadline = $('#book-search-h1');
 const searchInput = $('#book-search');
 const searchBtn = $('#search-btn');
@@ -11,7 +12,7 @@ const myBooksDiv = $('#my-books-div');
 const myBooksTable = $('#my-books-list');
 const dictionaryNav = $('#dictionary');
 const dictionaryDiv = $('#dictionary-div');
-const container = $('#container');
+const addToCollectionBtn = $('.add-btn');
 
 // Variables to store and retrieve data by using the local storage.
 let collection = [];
@@ -117,24 +118,26 @@ function searchBook(url) {
                 const descriptionCell = $(`#card-text-${i}`).html(result.searchInfo === undefined ?
                     `${(result.volumeInfo.description === undefined ? 'No description available' : result.volumeInfo.description)}` : `${result.searchInfo.textSnippet}`)
                     .addClass('description-cell');
-                const addButton = $(`#card-button-${i}`).text('Add to my collection').addClass('add-collection');
-                // Adding an event listener to each "Add to my collection" button. Once one of those button is clicked, the associated data will be stored in the local storage.
-                addButton.on('click', function () {
-                    const authorAndTitle = result.volumeInfo.authors.length === 1 ?
-                        `${result.volumeInfo.authors} - ${result.volumeInfo.title}` : `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`;
-                    const coverUrl = result.volumeInfo.imageLinks === undefined ?
-                        'assets/img/no-image-placeholder.png' : `${result.volumeInfo.imageLinks.thumbnail}`
-                    const bookObject = { 'authorAndTitle': authorAndTitle, 'coverUrl': coverUrl };
-                    collection.push(bookObject);
-
-                    // Filtering the collection array of objects from duplicates by using chickens' solution: 
-                    // https://stackoverflow.com/a/56757215
-                    let filteredCollection = collection.filter((v, i, a) => a.findIndex(v2 => (JSON.stringify(v2) === JSON.stringify(v))) === i);
-                    localStorage.setItem('collection', JSON.stringify(filteredCollection));
-                })
+                const addButton = $(`#card-button-${i}`).text('Add to my collection');
             }
         })
 }
+
+// Adding an event listener to each "Add to my collection" button. Once one of those button is clicked, the associated data will be stored in the local storage.
+addToCollectionBtn.on('click', function (e) {
+    e.preventDefault();
+
+    const authorAndTitle = $(this).siblings('.card-title').text();
+    const coverUrl = $(this).parent().siblings('.card-img-top').attr('src');
+    const bookObject = { 'authorAndTitle': authorAndTitle, 'coverUrl': coverUrl };
+
+    collection.push(bookObject);
+
+    // Filtering the collection array of objects from duplicates by using chickens' solution: 
+    // https://stackoverflow.com/a/56757215
+    let filteredCollection = collection.filter((v, i, a) => a.findIndex(v2 => (JSON.stringify(v2) === JSON.stringify(v))) === i);
+    localStorage.setItem('collection', JSON.stringify(filteredCollection));
+})
 
 // Retrieve data from the local storage and render the collection of books into a table,
 // and adds a checkbox to each book to be able to mark if it's already been read.
