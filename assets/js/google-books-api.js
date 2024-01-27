@@ -105,7 +105,7 @@ function searchBook(url) {
             for (let i = 0; i < results.length; i++) {
                 let result = results[i]
                 const bookID = result.id;
-                coverURL = `https://books.google.com/books/content?id=${bookID}&printsec=frontcover&img=2&zoom=2&edge=curl&source=gbs_api`;
+                coverURL = `http://books.google.com/books/content?id=${bookID}&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api`;
                 $(`#card-${i}`).removeClass('hidden');
 
                 const coverImg = $(`#cover-img-${i}`).attr('src', coverURL);
