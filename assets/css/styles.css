@@ -8,6 +8,10 @@ body {
   margin-bottom: 50px;
 }
 
+.fa-book-open-reader {
+  margin-right: 10px;
+}
+
 .navbar-custom {
   background-color: #7851a9;
   color: #fff;

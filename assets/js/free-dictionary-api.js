@@ -14,14 +14,11 @@ function displayDictionary(event) {
     const wordResult = document.getElementById("word-result");
 
     wordResult.classList.remove("hidden");
-    console.log(inputValue);
+
     //Api fetch : word, definition, pronunciation.
     fetch(`${dictionaryURL}${inputValue}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        const example = data[0].meanings[0].definitions[0].example;
-
         searchResult.innerHTML = `<div class="word">
         <h2 class="sample">${inputValue} <span class="word-details">${data[0].meanings[0].partOfSpeech} ${data[0].phonetic}</span></h2>
         <div class="audio">
