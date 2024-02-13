@@ -7,6 +7,7 @@ const searchNav = $('#search');
 const searchDiv = $('#book-search-form');
 const resultsDiv = $('#results-div');
 const resultsCards = $('.card');
+const cardRow = $('#card-row');
 const myBooksNav = $('#my-books');
 const myBooksDiv = $('#my-books-div');
 const myBooksTable = $('#my-books-list');
@@ -103,19 +104,31 @@ function searchBook(url) {
 
             // Rendering the search results to the screen.
             for (let i = 0; i < results.length; i++) {
-                let result = results[i]
+                let result = results[i];
                 const bookID = result.id;
-                coverURL = `http://books.google.com/books/content?id=${bookID}&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api`;
-                $(`#card-${i}`).removeClass('hidden');
+                coverURL = `https://books.google.com/books/content?id=${bookID}&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api`;
+                //$(`#card-${i}`).removeClass('hidden');
 
-                const coverImg = $(`#cover-img-${i}`).attr('src', coverURL);
-                const authorAndTitleCell = $(`#card-title-${i}`).text(result.volumeInfo.authors ? `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}` : 'Unknown Author');
+                //const coverImg = $(`#cover-img-${i}`).attr('src', coverURL);
+                const authorAndTitleCell = result.volumeInfo.authors === undefined ? 'Unknown Author' : `${result.volumeInfo.authors.join(' & ')} - ${result.volumeInfo.title}`;
 
                 // If no short description available, it will be replaced by the longer description. If the longer description also missing, a custom text will be displayed.
-                const descriptionCell = $(`#card-text-${i}`).html(result.searchInfo === undefined ?
-                    `${(result.volumeInfo.description === undefined ? 'No description available' : result.volumeInfo.description)}` : `${result.searchInfo.textSnippet}`)
-                    .addClass('description-cell');
-                const addButton = $(`#card-button-${i}`).text('Add to my collection');
+                const descriptionCell = result.searchInfo === undefined ?
+                    `${(result.volumeInfo.description === undefined ? 'No description available' : result.volumeInfo.description)}` : `${result.searchInfo.textSnippet}`;
+                //const addButton = $(`#card-button-${i}`).text('Add to my collection');
+
+                const cardHTML = `<div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 card-div">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="${coverURL}">
+                            <div class="card-body d-flex justify-content-between flex-column">
+                                <h5 class="card-title">${authorAndTitleCell}</h5>
+                                <p class="card-text">${descriptionCell}</p>
+                                <button class="btn btn-primary add-btn" data-bs-toggle="modal"
+                                    data-bs-target="#addedModal">Add to my collection</button>
+                            </div>
+                    </div>
+                </div>`;
+                cardRow.append(cardHTML);
             }
         })
 }
